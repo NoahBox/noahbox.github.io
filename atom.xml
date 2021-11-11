@@ -6,7 +6,7 @@
   <link href="http://noahbox.github.io/atom.xml" rel="self"/>
   
   <link href="http://noahbox.github.io/"/>
-  <updated>2021-08-15T13:09:14.109Z</updated>
+  <updated>2021-11-11T15:25:20.865Z</updated>
   <id>http://noahbox.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【COC模组】【古城事件簿Ex②】早八要迟到了</title>
+    <link href="http://noahbox.github.io/2021/11/11/%E6%97%A9%E5%85%AB%E8%A6%81%E8%BF%9F%E5%88%B0%E4%BA%86/"/>
+    <id>http://noahbox.github.io/2021/11/11/%E6%97%A9%E5%85%AB%E8%A6%81%E8%BF%9F%E5%88%B0%E4%BA%86/</id>
+    <published>2021-11-11T15:15:00.000Z</published>
+    <updated>2021-11-11T15:25:20.865Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/11/11/lMO8SZNrL5a6vt2.png&quot; alt=&quot;Cover.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;模组简介&quot;&gt;&lt;a href=&quot;#模组简介&quot; class=&quot;headerlink&quot; title=&quot;模组简介&quot;&gt;&lt;/a&gt;模组简介&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;适用于 COC7th 规则&lt;/li&gt;
+&lt;li&gt;适于 1-3 名调查员共同进行冒险&lt;/li&gt;
+&lt;li&gt;预计游戏时长 4-5 小时 (面团)&lt;/li&gt;
+&lt;li&gt;故事发生于 2021 年的中国·古城市·古城科技大学校园内&lt;/li&gt;
+&lt;li&gt;偏向于调查的半开放式模组&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;模组背景&quot;&gt;&lt;a href=&quot;#模组背景&quot; class=&quot;headerlink&quot; title=&quot;模组背景&quot;&gt;&lt;/a&gt;模组背景&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;​    《早八要迟到了》是古城系列的短篇外传性质模组，内容与古城系列其他模组没有直接关联，因此完全可以单独进行游玩。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;调查员是一群每天早上8点30分都要上课的大学生。&lt;/p&gt;
+&lt;p&gt;在秋冬之交寒冷的10月的某日，来到教学楼附近的调查员发现几栋教学楼门口居然都排起了长队，而此时距离上课只剩下几分钟了……&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="COC" scheme="http://noahbox.github.io/categories/COC/"/>
+    
+    <category term="COC模组" scheme="http://noahbox.github.io/categories/COC/COC%E6%A8%A1%E7%BB%84/"/>
+    
+    
+    <category term="古城事件簿" scheme="http://noahbox.github.io/tags/%E5%8F%A4%E5%9F%8E%E4%BA%8B%E4%BB%B6%E7%B0%BF/"/>
+    
+    <category term="剧本/模组" scheme="http://noahbox.github.io/tags/%E5%89%A7%E6%9C%AC-%E6%A8%A1%E7%BB%84/"/>
+    
+    <category term="原创" scheme="http://noahbox.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>【龙蛋物语相关】龙蛋物语常用资源[规则书、人物卡、官方扩展……]</title>
