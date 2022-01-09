@@ -6,7 +6,7 @@
   <link href="http://noahbox.github.io/atom.xml" rel="self"/>
   
   <link href="http://noahbox.github.io/"/>
-  <updated>2022-01-07T09:21:43.753Z</updated>
+  <updated>2022-01-09T07:54:31.850Z</updated>
   <id>http://noahbox.github.io/</id>
   
   <author>
@@ -21,28 +21,29 @@
     <link href="http://noahbox.github.io/2021/12/28/%E6%98%8E%E6%97%A5%E6%98%8E%E6%97%A5/"/>
     <id>http://noahbox.github.io/2021/12/28/%E6%98%8E%E6%97%A5%E6%98%8E%E6%97%A5/</id>
     <published>2021-12-27T17:00:00.000Z</published>
-    <updated>2022-01-07T09:21:43.753Z</updated>
+    <updated>2022-01-09T07:54:31.850Z</updated>
     
     
-    <summary type="html">&lt;blockquote&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/01/09/tX5BoHnzNS1TmQC.png&quot; alt=&quot;cover_horizontal&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&lt;font style=&quot;color: white; background-color: red&quot; &gt;R18G 警告&lt;/font&gt;&lt;/p&gt;
-&lt;p&gt;本模组含有血腥、暴力、猎奇等因素，请在确保可以接受包含上述因素的描写的情况下阅读。&lt;/p&gt;
+&lt;p&gt;本剧本含有血腥、暴力、猎奇等因素，请在确保可以接受包含上述因素的描写的情况下阅读。&lt;/p&gt;
 &lt;p&gt;也请在使用模组前确认玩家可以接受上述因素。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;模组简介&quot;&gt;&lt;a href=&quot;#模组简介&quot; class=&quot;headerlink&quot; title=&quot;模组简介&quot;&gt;&lt;/a&gt;模组简介&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;适用于 COC7th 规则&lt;/li&gt;
-&lt;li&gt;适于 1 名调查员进行冒险&lt;/li&gt;
+&lt;li&gt;适用于 BRP 规则&lt;/li&gt;
+&lt;li&gt;适于 1 名玩家进行冒险&lt;/li&gt;
 &lt;li&gt;预计游戏时长 1-2 小时 (面团)&lt;/li&gt;
 &lt;li&gt;故事发生于 2021 年，地点不定&lt;/li&gt;
-&lt;li&gt;没有战斗要素的封闭式非线性模组&lt;/li&gt;
+&lt;li&gt;没有战斗要素的封闭式非线性剧本&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;在《明日、明日……》中，失去了记忆的调查员独自居住在空荡荡的房间中，并会在自己的家中度过数天的时间。调查员需要在这几天的时间里对自己身边的事物进行调查，尝试找回自己的记忆并搞清楚自己的身上究竟发生了什么。&lt;/p&gt;</summary>
+&lt;p&gt;在《明日、明日……》中，失去了记忆的 PC 独自居住在空荡荡的房间中，并会在自己的家中度过数天的时间。PC 需要在这几天的时间里对自己身边的事物进行调查，尝试找回自己的记忆并搞清楚自己的身上究竟发生了什么。&lt;/p&gt;</summary>
     
     
     
-    <category term="COC" scheme="http://noahbox.github.io/categories/COC/"/>
+    <category term="BRP" scheme="http://noahbox.github.io/categories/BRP/"/>
     
-    <category term="COC模组" scheme="http://noahbox.github.io/categories/COC/COC%E6%A8%A1%E7%BB%84/"/>
+    <category term="BRP剧本" scheme="http://noahbox.github.io/categories/BRP/BRP%E5%89%A7%E6%9C%AC/"/>
     
     
     <category term="剧本/模组" scheme="http://noahbox.github.io/tags/%E5%89%A7%E6%9C%AC-%E6%A8%A1%E7%BB%84/"/>
