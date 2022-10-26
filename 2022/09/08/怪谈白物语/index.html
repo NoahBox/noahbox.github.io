@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-noah.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-noah.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-noah.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"noahbox.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="译文来源：怪談白物語 (goddessfantasy.net) 出自 《TRPGおまじな大饗宴》 里的 缶コーヒーの投げやり!1ページる・る・ぶ 。 GM负责说鬼故事而PL全力打岔的一页纸TRPG。PL狩猎怪谈中的关键词并努力欺凌GM，GM努力隐藏关键词并引导故事保持恐怖的游戏。 怎么才能讲出吓人的鬼故事呢？  序文“说的是第九十九个怪谈。剩下的一个不知在哪裡。没有那一个的话故事就无法停止。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【一页纸TRPG规则】怪谈白物语">
+<meta property="og:url" content="http://noahbox.github.io/2022/09/08/%E6%80%AA%E8%B0%88%E7%99%BD%E7%89%A9%E8%AF%AD/index.html">
+<meta property="og:site_name" content="Noah&#39;s TRPG Box">
+<meta property="og:description" content="译文来源：怪談白物語 (goddessfantasy.net) 出自 《TRPGおまじな大饗宴》 里的 缶コーヒーの投げやり!1ページる・る・ぶ 。 GM负责说鬼故事而PL全力打岔的一页纸TRPG。PL狩猎怪谈中的关键词并努力欺凌GM，GM努力隐藏关键词并引导故事保持恐怖的游戏。 怎么才能讲出吓人的鬼故事呢？  序文“说的是第九十九个怪谈。剩下的一个不知在哪裡。没有那一个的话故事就无法停止。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/jpeg;base64,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">
+<meta property="article:published_time" content="2022-09-08T03:30:00.000Z">
+<meta property="article:modified_time" content="2022-09-08T04:20:23.834Z">
+<meta property="article:author" content="MasterNoah">
+<meta property="article:tag" content="剧本&#x2F;模组">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/jpeg;base64,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">
+
+<link rel="canonical" href="http://noahbox.github.io/2022/09/08/%E6%80%AA%E8%B0%88%E7%99%BD%E7%89%A9%E8%AF%AD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【一页纸TRPG规则】怪谈白物语 | Noah's TRPG Box</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Noah's TRPG Box" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Noah's TRPG Box</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hell is Other People.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言簿</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://noahbox.github.io/2022/09/08/%E6%80%AA%E8%B0%88%E7%99%BD%E7%89%A9%E8%AF%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="MasterNoah">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Noah's TRPG Box">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【一页纸TRPG规则】怪谈白物语
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-08 11:30:00 / 修改时间：12:20:23" itemprop="dateCreated datePublished" datetime="2022-09-08T11:30:00+08:00">2022-09-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TRPG%E8%A7%84%E5%88%99/" itemprop="url" rel="index"><span itemprop="name">TRPG规则</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/09/08/%E6%80%AA%E8%B0%88%E7%99%BD%E7%89%A9%E8%AF%AD/" class="post-meta-item leancloud_visitors" data-flag-title="【一页纸TRPG规则】怪谈白物语" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/09/08/%E6%80%AA%E8%B0%88%E7%99%BD%E7%89%A9%E8%AF%AD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/08/%E6%80%AA%E8%B0%88%E7%99%BD%E7%89%A9%E8%AF%AD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="data:image/jpeg;base64,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" style="zoom:200%;" />
+
+<blockquote>
+<p>译文来源：<a target="_blank" rel="noopener" href="https://www.goddessfantasy.net/bbs/?topic=117742.0">怪談白物語 (goddessfantasy.net)</a></p>
+<p>出自 《TRPGおまじな大饗宴》 里的 <strong>缶コーヒーの投げやり!1ページる・る・ぶ</strong> 。</p>
+<p>GM负责说鬼故事而PL全力打岔的一页纸TRPG。PL狩猎怪谈中的关键词并努力欺凌GM，GM努力隐藏关键词并引导故事保持恐怖的游戏。</p>
+<p><span class="heimu">怎么才能讲出吓人的鬼故事呢？</span></p>
+</blockquote>
+<h1 id="序文"><a href="#序文" class="headerlink" title="序文"></a>序文</h1><p><em>“说的是第九十九个怪谈。<br>剩下的一个不知在哪裡。<br>没有那一个的话故事就无法停止。<br>到达不了一百的白物语。<br>那九十九个故事连露水都不知晓。”</em>  </p>
+<p>这是个讲述怪谈的TRPG。PC们参加了一个聚在一起的百物语（译注：一种轮流讲鬼故事的怪谈会形式，每讲一个故事吹熄一根蜡烛，讲完九十九个后守着最后一根蜡烛等待天明）。PC们都是知道的，如果集齐了一百个怪谈世上将会发生可怕的事情。现在正是最后一个人（GM）讲述最后一个故事。想方设法让可怕的故事变得不可怕吧。  </p>
+<p align="center">要不，你看，刚才一直站在你身边的是谁？</p>
+
+<span id="more"></span>
+
+<h1 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h1><h2 id="准备物品"><a href="#准备物品" class="headerlink" title="准备物品"></a>准备物品</h2><ul>
+<li>一个六面骰</li>
+<li>人数份的纸笔</li>
+<li>无所畏惧的内心</li>
+</ul>
+<h2 id="创建人物"><a href="#创建人物" class="headerlink" title="创建人物"></a>创建人物</h2><h3 id="玩家（PL）"><a href="#玩家（PL）" class="headerlink" title="玩家（PL）"></a>玩家（PL）</h3><p>玩家角色（PC）们分别拥有以下的职业。PL首先选择喜欢的职业，各职业决定了<strong>恐怖耐久值</strong>和<strong>特征</strong>。选择同样的职业也无所谓。各个特征请参见下文的游戏系统。接下来，从1-6中选择一个喜欢的数字。这个数字请不要和其他玩家重复。然后决定角色的姓名、外貌、年龄、不能对其他人说的癖好以及喜欢的芬达种类就完成了。</p>
+<table>
+<thead>
+<tr>
+<th align="center">职业</th>
+<th align="center">恐怖耐久值</th>
+<th align="left">特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">脚本家</td>
+<td align="center">3</td>
+<td align="left">当自己的（修正）检定失败的场合，故事会像修正成功了那般继续进行（耐久值会减少）</td>
+</tr>
+<tr>
+<td align="center">灵媒</td>
+<td align="center">4</td>
+<td align="left">当某人的恐怖耐久值减少时，作为代替可以减少自己的恐怖耐久值。</td>
+</tr>
+<tr>
+<td align="center">编辑</td>
+<td align="center">3</td>
+<td align="left">当自己的检定失败的场合，GM要随机公开一个关键字。</td>
+</tr>
+<tr>
+<td align="center">科学家</td>
+<td align="center">2</td>
+<td align="left">一次判定可以同时指出最多两个修正点。</td>
+</tr>
+<tr>
+<td align="center">咒术师</td>
+<td align="center">6</td>
+<td align="left">当自己的判定成功时，骰出数字对应的PC减少1点恐怖耐久值。</td>
+</tr>
+<tr>
+<td align="center">无职</td>
+<td align="center">5</td>
+<td align="left">在任何角色扮演的时候，所有人都会“你，没有工作！”这样欺负你。</td>
+</tr>
+</tbody></table>
+<h3 id="GM"><a href="#GM" class="headerlink" title="GM"></a>GM</h3><p>首先从下面选择一个讲最终故事之人的特征。同PC一样具有特殊的能力。详细内容参见下文的游戏系统。GM没有恐惧耐久值。GM不必向PL公布自己选择的特征。接下来构思一个可怕的故事吧。此时，请思考10个关键词（选“闲聊”特征的时候是12个），并将关键词包含进故事中。关键词最好是一个“词”，如果易于理解的话“短语”也是可以的。这些关键词全部被猜中的话就是PL的胜利。如果一时想不到关键词，请尝试从手边的书之类的地方适当地挑选出来吧。</p>
+<table>
+<thead>
+<tr>
+<th align="center">技能</th>
+<th align="left">特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">KY（破坏气氛）</td>
+<td align="left">PL检定成功的场合，如果修正点不是关键字，那麽故事内容可以不进行修改。</td>
+</tr>
+<tr>
+<td align="center">闲聊</td>
+<td align="left">可以使用12个关键词。</td>
+</tr>
+<tr>
+<td align="center">说谎</td>
+<td align="left">可以重複使用同一个关键词（1次修正只需要公布其中之一就可以了）。</td>
+</tr>
+<tr>
+<td align="center">稻川</td>
+<td align="left">用稲○淳二的风格讲故事。在游戏中有一次机会，可以在任意时间将任一pc的恐怖耐久值减少3。（译注：稻川淳二，知名怪谈艺人）</td>
+</tr>
+</tbody></table>
+<h2 id="修改故事"><a href="#修改故事" class="headerlink" title="修改故事"></a>修改故事</h2><p>游戏从刚刚结束第九十九个可怕故事时开始。就像那样扮演营造出一种真可怕的气氛。这时大家胡闹一下吧，当气氛平稳下来的时候GM装腔作势地开始最后一个故事，从这开始就是恐怖的开端了。嗝欸欸欸。</p>
+<p>GM先开始讲述可怕的故事。PL认为某个词汇是可怕故事的关键词的时候，像“这里应该是○○吧？”“我听说这里是××才对”这样指出，然后指出的玩家掷出一颗骰子。</p>
+<p>如果没有掷出创建人物时选择的数字，则判定成功。GM会告诉你指出的词是否为关键词，并按指出的内容修正并继续故事。但是，被修正前的那个词汇并不是一定不能使用，可以在其他地方说这个词汇。只要PL成功进行了指出，选择用什么内容代替来继续都是可以的。</p>
+<p>判定的时候如果掷出了了人物创建时选择的数字，判定会失败。PC感受到不寒而慄并且恐怖耐久值降低1。当恐怖耐久值小于等于0时，PC会发狂并且无法参加之后的修正。</p>
+<p>总之，请适当地胡闹一下。重复这个过程，修正词汇使得GM的故事变得不再可怕。也可以回溯指出之前说的内容。GM忍受着PL的欺凌，努力使得故事变得可怕吧。如果内心善良的GM把PL错过的关键词再一次提出就太好了。</p>
+<p>关键词全部被修正时，PL胜利并且可怕故事就此中止。或者，PC全部发狂的情况下，或者GM完成讲述的故事是一个“可怕的故事”的话，PL就输了。可怕与否请大家商量决定。而如果不可怕的话，意味着百物语可以暂且停止，因此游戏平局结束。</p>
+<p>另外，如果百物语完成了，GM要掷一枚骰子。对应值发生以下的事件：</p>
+<p>1：房间里的东西突然掉下来碎裂开来，敲打门和牆壁的声音在房间迴荡。<br>2：当前恐怖耐久值最低的PC变得奇怪并且暴跳起来，如果最低值不止一个人那么他们全都会暴跳起来。<br>3：听到显然多出房间里人数的声音。<br>4：PC们突然头痛和恶心。<br>5：还以为看见窗外有人影，才发现外面已经是白天了。<br>6：在场的人都变成奇怪的体质，在听到可怕故事时会条件反射地说“到处都是鬼怪啊！”。</p>
+<h1 id="怪谈故事"><a href="#怪谈故事" class="headerlink" title="怪谈故事"></a>怪谈故事</h1><blockquote>
+<p><span class="high-light" style="background-color: yellow; color: grey">高亮显示</span>的是首次出现的关键词， <strong>加粗显示</strong> 的是第二次之后出现的关键词。</p>
+</blockquote>
+<h2 id="0-如月车站"><a href="#0-如月车站" class="headerlink" title="0# 如月车站"></a>0# 如月车站</h2><blockquote>
+<p>来自于 动漫之家</p>
+</blockquote>
+<p>那起事件发生于2004年，那天晚上11点，我坐上了平时那趟从新滨松站出发的<span class="high-light">私铁电车</span>。那天的 <strong>车</strong> 非常奇怪，平时这班 <strong>车</strong> 只要7、8分钟就会停站，可是这次却至少行驶了20分钟都没有停下来。我想去卫生间大便，却发现看不到卫生间里面，砸锅也没有得到回应。车上除了我还有5名乘客，都在低着头睡觉。后来电车通过一条平时坐车没见过的<span class="high-light">隧道</span>后，于凌晨12点停在了“如月车站”。</p>
+<p>看到停站后，我赶紧下了 <strong>车</strong> ，想通过反方向的 <strong>车</strong> 坐回去。其他乘客还在睡觉，只有我一个人下了 <strong>车</strong> 。那是个无人车站，车站里空无一人。出站后外面也都空荡荡的，用手机搜寻也找不到所在位置。在我不知如何是好，想干脆继续坐上刚才那趟车到总站再做打算的时候， <strong>电车</strong> 关门开走了。我只好打电话向家人求救，希望爸爸能够来接我，但是家人也找不到我所在的车站。无奈之下只好报了警，但却被<span class="high-light">警方</span>当作恶作剧电话。因为根本没有“如月”这个车站。</p>
+<p>出了车站也什么都没有。没有住宅没有商店，只有山和<span class="high-light">草原</span>。我决定沿着来时的铁道往回走，希望可以走回家去。到凌晨2点左右，附近传来铃铛及<span class="high-light">太鼓</span>的声音。我害怕到不敢回头看。这时听见背后有人喊:“在铁道上走很危险啊!”以为是<span class="high-light">站员</span>在喊话，我条件反射地回了头。我看见站在背后的是一名只有一条腿的人，或者不知道该不该叫作“人”。那个人形的身体已经很多地方都能看到骨头了，眼眶里还有虫子在蠕动。我被吓得摔倒在了铁道上，发出尖叫，那个“人”发出两声“嘿嘿”的笑声，就凭空消失了。</p>
+<p>我坐在地上半天爬不起来，腿都软了。这时 <strong>太鼓</strong> 和铃铛的声音越来越靠近了，我看不见发出声音的东西，只能听见声音。实在太害怕了，但我还不想死，挣扎着爬起来后继续沿着铁道往回走，通过了之前那条没见过的 <strong>隧道</strong> ，才知道 <strong>隧道</strong> 名叫“伊佐贯”。 <strong>隧道</strong> 那头站着个人，我因为终于再次见到人了，所以马上过去求助。那人答应帮助我，开车送我到附近的<span class="high-light">车站</span>，并告诉我那边有旅馆可以住下。上车后过了段时间我发现不对劲。车是往山上开的，前面怎么也不像有 <strong>车站</strong> 和旅店的样子，而且司机开始自言自语一些听不懂的话。</p>
+<p>我很害怕，想跳车逃跑，但是<span class="high-light">车窗</span>和车门都是封死的，怎么都打不开。司机发现了我的动作，加快了车速，像要把我带去什么不妙的地方似的。这时前面突然发出强烈的<span class="high-light">光线</span>，车子也猛烈地震动了一下，司机消失了。旁边出现了另一个男人向着车子走来，那名男子向我大喊:“你为什么在这里!这里很危险!我让那个司机消失了，你趁现在快跑!”他把我从车里拉了出来，并让我向着 <strong>光线</strong> 的方向快跑。我听话跑了起来， <strong>光线</strong> 变得非常刺眼。等我再次睁开眼睛时，发现自己在家附近的车站前面。这个时候我还不知道，时间已经是2011年了。</p>
+<h2 id="1-自动演奏的钢琴"><a href="#1-自动演奏的钢琴" class="headerlink" title="1# 自动演奏的钢琴"></a>1# 自动演奏的钢琴</h2><blockquote>
+<p>By MasterNoah </p>
+</blockquote>
+<p>今天是星期五，终于快到周末了。本来打算放学了立马就回家玩前几天刚买的游戏，结果不巧，今天轮到我值日了。打扫卫生的其他人都早早完成了自己的部分，空荡荡的<span class="high-light">教室</span>里现在只剩下了我一个人。一边埋冤着他们讲最麻烦的工作交给了我，我将清洁工具放回原本的位置。看了一眼 <strong>教室</strong> 前方挂着的时钟，现在已经是7点钟了，距离放学时间已经过了1个小时了。</p>
+<p>正当我拿起书包，准备回家时，突然看到了书包旁放着的小说。哦对，从<span class="high-light">图书馆</span>借来的这本书的返还期限就是今天，还得去把书还了才行。于是，我背上了书包，拿起小说，走出了教学楼并向着 <strong>图书馆</strong> 所在的特别教学楼走去。</p>
+<p>我走进了图书馆却发现这里面一个人都没有。真是奇怪啊，图书管理员应该8点钟才下班的，不过没有锁门的话，大概是去上厕所了吧。这样想着，我坐在了一张桌子前，随手从书架上取了一本<span class="high-light">恐怖小说</span>，打算在等待图书管理员回来的这段时间里打发打发时间。但是，我等了很久图书管理员都没有回来。该不会是有急事提前下班又忘记锁门了吧，我这样想着，合上了书，抬起手腕打算看一眼<span class="high-light">手表</span>上的时间。真倒霉， <strong>手表</strong> 不知道是坏了还是没电了，指针停止在了7：10的位置。</p>
+<p>我只好放弃了还书。明天还书的时候说明今天的情况的话，应该不会被为难吧。我再次背起书包，准备离开 <strong>图书馆</strong> 。就在这时，音乐的声音突然响了起来。那曲子我很熟悉，是我经常听的<span class="high-light">《月光》</span>。大概是音乐社团的人在图书馆旁的音乐教室里弹<span class="high-light">钢琴</span>吧。突然，我想起来之前从朋友那里听来的一个怪谈：据说在周五晚上8点的时候， <strong>钢琴</strong> 的声音会从空无一人的音乐教室里传出来，但当去查看时却发现没有人弹奏的 <strong>钢琴</strong> 在自己发出声音。</p>
+<p>这种事情怎么可能发生呢？不知道是探求真相的好奇心还是想要揭开谎言的想法驱使着我，我向着走廊更深处的音乐教室走去。声音越来越大的 <strong>《月光》</strong> 的声音告诉我，没错，这就是音乐教室里面的某人在弹 <strong>钢琴</strong> 。虽然知道怪谈都是子虚乌有的，但在我打开教室门的一瞬间，紧张的心情还是不由自主地浮现了出来。我缓缓地打开教室的门，因为年老失修的缘故，门发出了<span class="high-light">吱呀的响声</span>。</p>
+<p>我走进了教室，那里面一片漆黑。怎么会有人关着<span class="high-light">灯</span>弹琴啊，这样想着的我按下了位于墙角的 <strong>电灯</strong> 的开关。可是教室并没有像我想象地那样亮起来，看来灯坏掉了，难怪不开 <strong>灯</strong> 弹琴呢。于是，我取出<span class="high-light">手机</span>，用 <strong>手机</strong> 发出的光亮照明。但是我在手机上看到了奇怪的东西，就在我想要再次确认在手机上看到的东西时，更加恐怖的事情让我几乎要夺门而逃。是的，那架 <strong>钢琴</strong> 在没有人弹的情况下，按键自己在上下起伏着，演奏着 <strong>《月光》</strong> 。</p>
+<p>我不敢多想，立刻转身离开了音乐教室，向着楼梯口的方向跑过去。当我路过图书馆的时候，我发现图书馆的门已经被锁上了。但我不敢在这里停留，我一路飞奔离开了特别教学楼，即使膝盖不小心碰到墙壁受了伤，我也没敢放慢脚步。当我走出特别教学楼之后， <strong>《月光》</strong> 立即停止了。我再次拿出手机确认了现在的<span class="high-light">时间</span>，看着屏幕上显示的8:01，我快步走出了校园。</p>
+<h2 id="更多故事"><a href="#更多故事" class="headerlink" title="更多故事"></a>更多故事</h2><p>Pixiv 上有不少作者发布了自己编写的故事，不过基本上全是日文。</p>
+<p><a target="_blank" rel="noopener" href="https://www.pixiv.net/tags/%E6%80%AA%E8%AB%87%E7%99%BD%E7%89%A9%E8%AA%9E/novels">#怪談白物語の小説・SS一覧 - pixiv</a></p>
+<p>Bilibili 上有一些 UP 发布了带有汉化的故事。</p>
+<style>
+.spoiler-details {
+background: linear-gradient(45deg,rgba(234,192,69,.3),rgba(234,192,69,.3) 25%,rgba(0,0,0,.3) 0,rgba(0,0,0,.3) 50%,rgba(234,192,69,.3) 0,rgba(234,192,69,.3) 75%,rgba(0,0,0,.3) 0,rgba(0,0,0,.3));
+background-size: 40px 40px;
+color: hsla(0,0%,100%,);
+}
+.spoiler-details {
+padding: 8px 16px;
+}
+.heimu, .heimu a, a .heimu, a.new .heimu, span.heimu a.new, span.heimu a.external, span.heimu a.external:visited, span.heimu a.extiw, span.heimu a.extiw:visited, span.heimu a.mw-disambig, span.heimu a.mw-redirect {
+    transition: color 0.13s linear;
+    color: #252525;
+    text-shadow: none;
+}
+.heimu, .heimu rt {
+    background-color: #252525;
+}
+    .high-light {
+        background-color: yellow;
+        color: grey
+    }
+</style>
+    </div>
+
+    
+    
+    
+      <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #66ccff;font-size:14px;">-EOF-</div>
+    
+</div>
+      
+      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%A7%E6%9C%AC-%E6%A8%A1%E7%BB%84/" rel="tag"># 剧本/模组</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/07/marumaru%E7%9A%84%E5%A5%87%E5%A6%99%E6%97%85%E8%A1%8C%E5%89%A7%E6%9C%AC%E9%9B%86/" rel="prev" title="【龙蛋物语剧本】○○的奇妙旅行剧本集！">
+      <i class="fa fa-chevron-left"></i> 【龙蛋物语剧本】○○的奇妙旅行剧本集！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/10/26/%E7%A5%B8%E4%B8%8D%E5%8D%95%E8%A1%8C/" rel="next" title="【TRPG规则】Fiasco（祸不单行）">
+      【TRPG规则】Fiasco（祸不单行） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">序文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%84%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%89%A9%E5%93%81"><span class="nav-number">2.1.</span> <span class="nav-text">准备物品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BA%BA%E7%89%A9"><span class="nav-number">2.2.</span> <span class="nav-text">创建人物</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%A9%E5%AE%B6%EF%BC%88PL%EF%BC%89"><span class="nav-number">2.2.1.</span> <span class="nav-text">玩家（PL）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GM"><span class="nav-number">2.2.2.</span> <span class="nav-text">GM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%85%E4%BA%8B"><span class="nav-number">2.3.</span> <span class="nav-text">修改故事</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%AA%E8%B0%88%E6%95%85%E4%BA%8B"><span class="nav-number">3.</span> <span class="nav-text">怪谈故事</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E5%A6%82%E6%9C%88%E8%BD%A6%E7%AB%99"><span class="nav-number">3.1.</span> <span class="nav-text">0# 如月车站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%87%AA%E5%8A%A8%E6%BC%94%E5%A5%8F%E7%9A%84%E9%92%A2%E7%90%B4"><span class="nav-number">3.2.</span> <span class="nav-text">1# 自动演奏的钢琴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E6%95%85%E4%BA%8B"><span class="nav-number">3.3.</span> <span class="nav-text">更多故事</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MasterNoah"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">MasterNoah</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/noahbox" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;noahbox" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:noahtie@foxmail.com" title="E-Mail → mailto:noahtie@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=571364304&website=www.oicqzone.com" title="QQ → tencent:&#x2F;&#x2F;AddContact&#x2F;?fromId&#x3D;45&amp;fromSubId&#x3D;1&amp;subcmd&#x3D;all&amp;uin&#x3D;571364304&amp;website&#x3D;www.oicqzone.com" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://masternoah.lofter.com/" title="https:&#x2F;&#x2F;masternoah.lofter.com&#x2F;" rel="noopener" target="_blank">MasterNoah的Lofter主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dicecho.com/account/6048c166aed4d4001dfe89e6" title="https:&#x2F;&#x2F;www.dicecho.com&#x2F;account&#x2F;6048c166aed4d4001dfe89e6" rel="noopener" target="_blank">MasterNoah的Dicecho主页</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MasterNoah</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 31094,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'mqyLbi5yBBtoXYLz5apgRROM-gzGzoHsz',
+      appKey     : 'YXWSW4teiVpIqLFpCSfAYXsI',
+      placeholder: "来说点什么嘛？",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://mqylbi5y.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
