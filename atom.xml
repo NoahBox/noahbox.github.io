@@ -6,7 +6,7 @@
   <link href="http://noahbox.github.io/atom.xml" rel="self"/>
   
   <link href="http://noahbox.github.io/"/>
-  <updated>2023-10-12T00:27:34.781Z</updated>
+  <updated>2023-11-01T03:47:08.958Z</updated>
   <id>http://noahbox.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【COC剧本】无知的幸福</title>
+    <link href="http://noahbox.github.io/2023/11/01/%E6%97%A0%E7%9F%A5%E7%9A%84%E5%B9%B8%E7%A6%8F/"/>
+    <id>http://noahbox.github.io/2023/11/01/%E6%97%A0%E7%9F%A5%E7%9A%84%E5%B9%B8%E7%A6%8F/</id>
+    <published>2023-11-01T04:00:00.000Z</published>
+    <updated>2023-11-01T03:47:08.958Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2023/11/01/lgJmGsMqij9Zbe3.png&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;模组简介&quot;&gt;&lt;a href=&quot;#模组简介&quot; class=&quot;headerlink&quot; title=&quot;模组简介&quot;&gt;&lt;/a&gt;模组简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;适用于COC7版规则。&lt;/li&gt;
+&lt;li&gt;以现代日本为背景的开放式美系剧本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在《无知的幸福》中，玩家将以福冈县久留米市为舞台，遭遇三起看似毫无关联的案件：三年前被报告失踪而不久前发现了受害人遗骨的新明纱叶遇害案、一位记者于几日前开始潜入调查之后杳无踪迹的西莲寺敬文失踪案，以及久留米市市长伊势户善一郎一家惨死于家中的伊势户一家谋杀案。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="COC" scheme="http://noahbox.github.io/categories/COC/"/>
+    
+    <category term="COC模组" scheme="http://noahbox.github.io/categories/COC/COC%E6%A8%A1%E7%BB%84/"/>
+    
+    
+    <category term="剧本/模组" scheme="http://noahbox.github.io/tags/%E5%89%A7%E6%9C%AC-%E6%A8%A1%E7%BB%84/"/>
+    
+    <category term="原创" scheme="http://noahbox.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>【龙蛋物语剧本】马鹿的奇妙旅行 剧本集！</title>
@@ -604,46 +634,6 @@
 &lt;li&gt;对模组进行了统一纠错、修改&lt;/li&gt;
 &lt;li&gt;使用规范与单一模组相同&lt;/li&gt;
 &lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="COC" scheme="http://noahbox.github.io/categories/COC/"/>
-    
-    <category term="COC模组" scheme="http://noahbox.github.io/categories/COC/COC%E6%A8%A1%E7%BB%84/"/>
-    
-    
-    <category term="剧本/模组" scheme="http://noahbox.github.io/tags/%E5%89%A7%E6%9C%AC-%E6%A8%A1%E7%BB%84/"/>
-    
-    <category term="原创" scheme="http://noahbox.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
-    
-    <category term="古城事件簿" scheme="http://noahbox.github.io/tags/%E5%8F%A4%E5%9F%8E%E4%BA%8B%E4%BB%B6%E7%B0%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【COC模组】【古城事件簿③完全重置】可曾遇见梦中仙境</title>
-    <link href="http://noahbox.github.io/2021/06/22/%E5%8F%AF%E6%9B%BE%E9%81%87%E8%A7%81%E6%A2%A6%E4%B8%AD%E4%BB%99%E5%A2%83/"/>
-    <id>http://noahbox.github.io/2021/06/22/%E5%8F%AF%E6%9B%BE%E9%81%87%E8%A7%81%E6%A2%A6%E4%B8%AD%E4%BB%99%E5%A2%83/</id>
-    <published>2021-06-22T05:30:00.000Z</published>
-    <updated>2022-09-05T07:53:02.834Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/06/23/bNnmMajHWpxCgAZ.png&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt; 因为之前的“欢迎来到仙境”在测试过后发现了许多逻辑上的错误，我将模组重写了一边，进行了大规模的修改。&lt;/p&gt;
-&lt;p&gt;  剧情变得和之前完全不一样了。&lt;/p&gt;
-&lt;p&gt;  不过也有朋友说还是之前的版本跑起来氛围更好，所以之前的版本也就不删除了，留在博客里也算是给自己一个警示吧。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;模组简介&quot;&gt;&lt;a href=&quot;#模组简介&quot; class=&quot;headerlink&quot; title=&quot;模组简介&quot;&gt;&lt;/a&gt;模组简介&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;适用于COC7th规则&lt;/li&gt;
-&lt;li&gt;适于2-4名调查员共同进行冒险&lt;/li&gt;
-&lt;li&gt;预计游戏时长4-6小时（网团耗时更长）&lt;/li&gt;
-&lt;li&gt;故事发生于中国·古城市，调查员可以来自世界各地&lt;/li&gt;
-&lt;li&gt;偏向于调查的半开放模组&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在2020年10月1日，你收到了一条中奖短信，准备前往古城市南边古南山脉里的度假山庄旅游。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
     
     
     
