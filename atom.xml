@@ -6,7 +6,7 @@
   <link href="http://noahbox.github.io/atom.xml" rel="self"/>
   
   <link href="http://noahbox.github.io/"/>
-  <updated>2023-11-04T13:19:28.250Z</updated>
+  <updated>2023-11-05T13:24:22.000Z</updated>
   <id>http://noahbox.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://noahbox.github.io/2023/11/04/%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/"/>
     <id>http://noahbox.github.io/2023/11/04/%E4%B8%80%E4%BB%BD%E7%A4%BC%E7%89%A9/</id>
     <published>2023-11-04T13:00:00.000Z</published>
-    <updated>2023-11-04T13:19:28.250Z</updated>
+    <updated>2023-11-05T13:24:22.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2023/11/04/6VWrDhEt5vyflCj.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
@@ -35,7 +35,9 @@
     
     
     
-    <category term="BRP剧本" scheme="http://noahbox.github.io/categories/BRP%E5%89%A7%E6%9C%AC/"/>
+    <category term="BRP" scheme="http://noahbox.github.io/categories/BRP/"/>
+    
+    <category term="BRP剧本" scheme="http://noahbox.github.io/categories/BRP/BRP%E5%89%A7%E6%9C%AC/"/>
     
     
     <category term="剧本" scheme="http://noahbox.github.io/tags/%E5%89%A7%E6%9C%AC/"/>
