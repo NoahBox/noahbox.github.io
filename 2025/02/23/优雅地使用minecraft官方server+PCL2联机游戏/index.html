@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-noah.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-noah.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-noah.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"noahbox.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="优雅地使用 minecraft 官方 server + PCL2 联机游戏最近学了《数字电路与逻辑分析》，想起来去年某学长考试前靠 MC 的红石电路复习，然后，本着学习数电摸鱼的目的，搭了一个 MC 的服务器（便于大家交流学习（逃">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优雅地使用 minecraft 官方 server + PCL2 联机游戏">
+<meta property="og:url" content="http://noahbox.github.io/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/index.html">
+<meta property="og:site_name" content="Noah&#39;s Box">
+<meta property="og:description" content="优雅地使用 minecraft 官方 server + PCL2 联机游戏最近学了《数字电路与逻辑分析》，想起来去年某学长考试前靠 MC 的红石电路复习，然后，本着学习数电摸鱼的目的，搭了一个 MC 的服务器（便于大家交流学习（逃">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/09/07/yLMbuldmxPrjZKH.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/XrdOxtMugawjnef.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/07/JkeHwubrYWzFg4G.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/07/XOrguyelxIoL78Q.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/08/7OSWBhofVqweubX.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/09/6Cn9ELGO5Ky4WS7.png">
+<meta property="article:published_time" content="2025-02-23T09:59:49.393Z">
+<meta property="article:modified_time" content="2021-09-13T16:21:13.641Z">
+<meta property="article:author" content="MasterNoah&#x2F;NoahTie">
+<meta property="article:tag" content="摸鱼">
+<meta property="article:tag" content="游戏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/09/07/yLMbuldmxPrjZKH.png">
+
+<link rel="canonical" href="http://noahbox.github.io/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>优雅地使用 minecraft 官方 server + PCL2 联机游戏 | Noah's Box</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Noah's Box" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Noah's Box</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hell is Other People.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言簿</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://noahbox.github.io/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="MasterNoah/NoahTie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Noah's Box">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          优雅地使用 minecraft 官方 server + PCL2 联机游戏
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-23 17:59:49" itemprop="dateCreated datePublished" datetime="2025-02-23T17:59:49+08:00">2025-02-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-14 00:21:13" itemprop="dateModified" datetime="2021-09-14T00:21:13+08:00">2021-09-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/" class="post-meta-item leancloud_visitors" data-flag-title="优雅地使用 minecraft 官方 server + PCL2 联机游戏" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="优雅地使用-minecraft-官方-server-PCL2-联机游戏"><a href="#优雅地使用-minecraft-官方-server-PCL2-联机游戏" class="headerlink" title="优雅地使用 minecraft 官方 server + PCL2 联机游戏"></a>优雅地使用 <code>minecraft</code> 官方 server + <code>PCL2</code> 联机游戏</h1><p>最近学了《数字电路与逻辑分析》，想起来去年某学长考试前靠 MC 的红石电路复习，然后，本着<del>学习数电</del>摸鱼的目的，搭了一个 MC 的服务器（便于大家交流学习（逃</p>
+<span id="more"></span>
+
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><p><font style="color: white; background-color: #B10DC9"> 如果你是玩家，请直接查看<a href="#客户端">客户端</a>部分。这部分雨女无瓜。</font></p>
+<hr>
+<h3 id="0x0-服务器"><a href="#0x0-服务器" class="headerlink" title="0x0 服务器"></a>0x0 服务器</h3><p>首先你需要一台云服务器，各种云服务器供应商都可以（当然，前提是没有被伟大的 <code>GWF</code> 拦截，<code>Amazon AWS</code> 似乎不行）。<br>本人使用的是腾讯云的轻量型应用服务器，配置如下供参考：</p>
+<table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">OS</td>
+<td align="center">Debian 10 buster</td>
+</tr>
+<tr>
+<td align="center">CPU</td>
+<td align="center">Intel Xeon Platinum 8255C @ 2x 2.494GHz</td>
+</tr>
+<tr>
+<td align="center">RAM</td>
+<td align="center">4G</td>
+</tr>
+<tr>
+<td align="center">ROM</td>
+<td align="center">80G SSD</td>
+</tr>
+<tr>
+<td align="center">带宽</td>
+<td align="center">8M</td>
+</tr>
+</tbody></table>
+<p>对于 <code>minecraft</code> 服务端的搭建而言，服务器配置的重要程度大致为： <code>公网带宽</code> &gt; <code>CPU</code> &gt; <code>RAM</code>  &gt; <code>ROM</code>。<br>我的服务器在跑服务端正常游戏的时候，系统占用基本上 CPU 20%， 内存 2GB， 带宽占用取决于游戏人数，基本上每人 1M 左右。</p>
+<hr>
+<h3 id="0x1-服务器配置"><a href="#0x1-服务器配置" class="headerlink" title="0x1 服务器配置"></a>0x1 服务器配置</h3><blockquote>
+<p>我是用的镜像是腾讯云提供的 <code>Debian 10.2 64bit</code> 系统镜像，接下来的操作均在该系统上。<br>使用其他操作系统的情况下，部分步骤可能会有所不同。</p>
+</blockquote>
+<h4 id="0x1-1-服务器账户配置"><a href="#0x1-1-服务器账户配置" class="headerlink" title="0x1.1 服务器账户配置"></a>0x1.1 服务器账户配置</h4><p><code>Mojang</code> 官方推荐的服务器搭建教程建议使用 <code>root</code> 账户并将 <code>minecraft</code> 的服务器本体 <code>server.jar</code> 及配置文件放置在 <code>/opt</code> 目录下，但由于我不是很喜欢直接用 root 账户，所以我选择使用普通用户 <code>noah</code> 并将文件放置在 <code>/home/noah/minecraft</code> 目录下。并没有遇到什么问题。</p>
+<blockquote>
+<p>如果你想使用 <code>root</code> 账户搭建服务端，直接跳到 <a href="#0x2-安装OpenJDK">0x2 安装 Openjdk</a>。</p>
+</blockquote>
+<p>首先添加一个新的账户：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd noah</span><br><span class="line">useradd -m noah -g noah -s /bin/bash -d /home/noah</span><br><span class="line">passwd noah</span><br></pre></td></tr></table></figure>
+
+<p>更新软件源、安装vim并赋予新用户sudo权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt upgrade</span><br><span class="line">apt update</span><br><span class="line">apt install vim</span><br><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>sudoers</code> 中添加一行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">noah	ALL(=ALL)	ALL</span><br></pre></td></tr></table></figure>
+
+<p>接着切换到新的用户：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su noah</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="0x1-2-安装-screen"><a href="#0x1-2-安装-screen" class="headerlink" title="0x1.2 安装 screen"></a>0x1.2 安装 <code>screen</code></h4><blockquote>
+<p><code>GNU Screen</code> 是一款由 GNU 计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。<br><code>GNU Screen</code> 可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install screen</span><br></pre></td></tr></table></figure>
+
+<p>在运行 <code>minecraft server</code> 的时候会用到 <code>screen</code>。</p>
+<h4 id="0x1-3安装一个更好看的shell"><a href="#0x1-3安装一个更好看的shell" class="headerlink" title="0x1.3安装一个更好看的shell"></a>0x1.3安装一个更好看的shell</h4><p>我个人喜欢用 <code>fish</code>， <code>zsh</code> 运行有些慢。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fish</span><br><span class="line">chsh -s /usr/bin/fish</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="0x2-安装OpenJDK"><a href="#0x2-安装OpenJDK" class="headerlink" title="0x2 安装OpenJDK"></a>0x2 安装OpenJDK</h3><blockquote>
+<p><code>Debian 10</code> 的默认 <code>JDK</code> 版本为 <code>OpenJDK 11</code>， 对于<code> minecraft server 1.17.1</code> 及以上的版本，需要使用 <code>OpenJDK 16</code> 及以上的版本。</p>
+</blockquote>
+<p>安装通过 HTTPS 添加新存储库所需的依赖项：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>wget</code> 命令导入存储库的 GPG 密钥：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+
+<p>添加 <code>AdoptOpenJDK APT</code> 存储库到你的系统：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/</span><br></pre></td></tr></table></figure>
+
+<p>更新 <code>apt</code> 源软件列表，启用存储库，安装 <code>OpenJDK 16</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install adoptopenjdk-16-hotspot</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="0x3-下载、启动并配置-minecraft-server"><a href="#0x3-下载、启动并配置-minecraft-server" class="headerlink" title="0x3 下载、启动并配置 minecraft server"></a>0x3 下载、启动并配置 minecraft server</h3><h4 id="官方版-server"><a href="#官方版-server" class="headerlink" title="官方版 server"></a>官方版 server</h4><p>下载官方的 <code>server.jar</code>，最新版本的下载地址可以在 <a target="_blank" rel="noopener" href="https://www.minecraft.net/zh-hans/download/server">Download server for Minecraft | Minecraft</a> 找到：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar</span><br></pre></td></tr></table></figure>
+
+<p>但是在国内下载的话速度有点慢，可以挂代理下载或者本机下好之后传到服务器上。</p>
+<p>我将 <code>server.jar</code> 放在了 <code>/home/noah/minecraft</code> 目录下，这里将来还会生成数个配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/noah/minecraft</span><br><span class="line">mv server.jar /home/noah/minecraft</span><br><span class="line">cd /home/noah/minecraft</span><br></pre></td></tr></table></figure>
+
+<p>为了方便运行，在这里新建一个 shell 脚本，并赋予它可执行权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim run.sh</span><br><span class="line">chmod +x run.sh</span><br></pre></td></tr></table></figure>
+
+<p>并将以下内容写入脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span></span><br><span class="line"><span class="built_in">exec</span> java -Xms1G -Xmx1G -jar server.jar --nogui</span><br></pre></td></tr></table></figure>
+
+<p>运行一次 server 以生成配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./run.sh</span><br></pre></td></tr></table></figure>
+
+<p>这次运行会因为未同意 <code>eula</code> 而异常退出。修改当前目录下生成的 <code>eula.txt</code> 文件，将其中的 <code>eula=false</code> 改为 <code>eula=true</code>。</p>
+<p>接着再运行一次 server， 等出现 <code>[Server thread/INFO]: Done (39.937s)! For help, type &quot;help&quot;</code> 的提示时 server 就算第一次正常运行了。第一次启动 server 耗时较长（大约 60 秒，具体取决于服务器的 CPU 配置），并且在启动的过程中会出现连续的许多 <code>[Worker-Main-2/INFO]: Preparing spawn area: 0%</code> 提示，这是正常情况。</p>
+<p>输入 <code>stop</code> 终止 server 运行，此时，目录下应该存在以下文件：</p>
+<p><img src="https://i.loli.net/2021/09/07/yLMbuldmxPrjZKH.png" alt="image-20210907232928633"></p>
+<p>修改配置文件 <code>server.properties</code>，其中需要修改的有：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">motd=Noah Minecraft Server # 服务器名称，不能带有部分特殊符号</span><br><span class="line">online-mode=false          # 是否验证正版，false为不验证，true为验证</span><br></pre></td></tr></table></figure>
+
+<p>其余的配置可以在控制台或游戏内通过 <code>op</code> 指令修改。</p>
+<p>通过在控制台输入 <code>op NoahTie</code> 设置 <code>op</code> (游戏内管理员)。将其中的 <code>NoahTie</code> 替换为你将要在游戏中使用的用户名。</p>
+<h4 id="Forge-版-server"><a href="#Forge-版-server" class="headerlink" title="Forge 版  server"></a>Forge 版  server</h4><p><font style="color: white; background-color: red">建议没有 Forge 使用经验的用户使用下面的 Fabric 版 server</font></p>
+<p>下载 <code>Forge Installer</code>： <a target="_blank" rel="noopener" href="https://files.minecraftforge.net/net/minecraftforge/forge/">Downloads for Minecraft Forge for Minecraft</a></p>
+<p>将 <code>Forge Installer</code> 放在安装目录下，并执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo java -jar forge-1.17.1-installer.jar nogui --installServer</span><br></pre></td></tr></table></figure>
+
+<p>运行一次 universal 版本，参照 官方版 server 修改 <code>eula.txt</code> 及 <code>server.properties</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar forge-1.17.1-universal.jar nogui</span><br></pre></td></tr></table></figure>
+
+<p>新建 shell 脚本并写入以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">java -server -d64 -Xms1150M -Xmx1150M -Xss228k -XX:NewSize=150m -XX:MaxNewSize=200m -XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:+UseFastAccessorMethods -XX:+UseConcMarkSweepGC -XX:MaxGCPauseMillis=100 -XX:+CMSParallelRemarkEnabled -XX:ParallelGCThreads=4 -jar forge-1.17.1-37.0.53.jar nogui</span><br></pre></td></tr></table></figure>
+
+<p>添加 mod 时，需要将 mod 文件放入 <code>/home/noah/minecraft/mod</code> 目录中，客户端需要安装相同版本的 <code>Forge</code> 和 mod 才能连接服务器。</p>
+<h4 id="Fabric-版-server"><a href="#Fabric-版-server" class="headerlink" title="Fabric 版 server"></a>Fabric 版 server</h4><p>下载 <code>fabric installer</code> 并运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O fabric-installer-0.7.4.jar https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.7.4/fabric-installer-0.7.4.jar</span><br><span class="line">sudo java -jar ./fabric-installer-0.7.4.jar server -downloadMinecraft</span><br></pre></td></tr></table></figure>
+
+<p>稍作等待即可完成安装，此时目录下应该有 <code>fabric-server-launcher.jar</code> 文件，运行它：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar fabric-server-launcher.jar</span><br></pre></td></tr></table></figure>
+
+<p>这次运行会因为未同意 <code>eula</code> 而异常退出。修改当前目录下生成的 <code>eula.txt</code> 文件，将其中的 <code>eula=false</code> 改为 <code>eula=true</code>。</p>
+<p>再次运行，会生成配置文件。参照 <strong>官方版 server</strong> 中的方法，修改 <code>server.properties</code> 文件。文件夹中应该有以下文件。</p>
+<p>安装 mod 时只需要将 <code>jar</code> 文件放进 <code>mods</code> 目录即可。</p>
+<p><img src="https://i.loli.net/2021/09/09/XrdOxtMugawjnef.png" alt="image-20210909174753155"></p>
+<hr>
+<h3 id="0x4-在-screen-页面中运行-server"><a href="#0x4-在-screen-页面中运行-server" class="headerlink" title="0x4 在 screen 页面中运行 server"></a>0x4 在 screen 页面中运行 server</h3><p>执行以下指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen -S mc</span><br><span class="line">screen -r mc</span><br></pre></td></tr></table></figure>
+
+<p>这两条指令新建了一个叫做 <code>mc</code> 的 screen 页面，并进入了这个页面。在这个 screen 页面中运行 server，等到 server 完全启动之后，依次按下 <code>Ctrl + a</code> 和 <code>d</code> 键以退出页面，此时 server 将在后台保持运行。之后可以通过 <code>screen -r mc</code> 指令返回页面。</p>
+<p>至此，一个 <code>minecraft 1.17.1</code> 纯净版的生存服务器就搭建好了。</p>
+<p>在 screen 页面中运行 shell 脚本启动服务器。</p>
+<hr>
+<hr>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><hr>
+<h3 id="0x0-下载启动器"><a href="#0x0-下载启动器" class="headerlink" title="0x0 下载启动器"></a>0x0 下载启动器</h3><h4 id="正版玩家"><a href="#正版玩家" class="headerlink" title="正版玩家"></a>正版玩家</h4><p>在 mojang 官网上下载 <code>java</code> 版的 <code>minecraft</code> 启动器并下载游戏。</p>
+<h4 id="盗版玩家"><a href="#盗版玩家" class="headerlink" title="盗版玩家"></a>盗版玩家</h4><p>下载 <code>PCL2</code> 或其他 mc 启动器。大部分启动器已经集成游戏本体及 <code>jre</code> 下载功能。按照提示下载 <code>1.17.1</code> 版本游戏即可。</p>
+<p>以 <code>PCL2</code> 为例：</p>
+<ol>
+<li><p>启动 <code>PCL2</code> 之后进入下载标签页，选择 <code>1.17.1</code> 版本。</p>
+<p><img src="https://i.loli.net/2021/09/07/JkeHwubrYWzFg4G.png" alt="image-20210907234953807"></p>
+</li>
+<li><p>选择你需要的功能，并点击下载。如果服务端使用了 <code>Forge</code> 或 <code>Fabric</code> 运行了 mod，客户端需要安装版本 <strong>完全相同</strong> 的 <code>Forge</code> 或 <code>Fabric</code>。</p>
+<p><img src="https://i.loli.net/2021/09/07/XOrguyelxIoL78Q.png" alt="image-20210907235221545"></p>
+</li>
+<li><p>等待游戏下载完成后，进入启动标签页，选择离线选项并进入游戏。进入游戏后选择 多人游戏 -&gt; 添加服务器，在服务器地址一栏输入服务器的 <code>ip</code> 地址或域名，点击完成。</p>
+</li>
+<li><p>点击服务器 -&gt; 加入服务器。</p>
+</li>
+</ol>
+<p>如果出现验证错误，请确认 <code>server.properties</code> 中 <code>online-mode</code> 的值已设置为 <code>false</code>。</p>
+<hr>
+<h3 id="0x1-添加-mod"><a href="#0x1-添加-mod" class="headerlink" title="0x1 添加 mod"></a>0x1 添加 mod</h3><p>首先需要在 <code>PCL2</code> 中下载与服务器相同版本的 <code>Forge</code> 或 <code>Fabric</code> 版客户端。</p>
+<h4 id="Forge"><a href="#Forge" class="headerlink" title="Forge"></a>Forge</h4><p>在 启动标签页 -&gt; 版本选择 -&gt; <code>Forge</code> 版本 选择 <code>1.17.1-Forge xx.x.xx</code>。</p>
+<p>在 启动标签页 -&gt; 版本设置 -&gt; mod 管理 -&gt;  打开 mod 文件夹。</p>
+<p>将服主发来的 <code>mod.zip</code> 解压到打开的文件夹里。</p>
+<p><img src="https://i.loli.net/2021/09/08/7OSWBhofVqweubX.png"></p>
+<h4 id="Fabric"><a href="#Fabric" class="headerlink" title="Fabric"></a>Fabric</h4><p>在 启动标签页 -&gt; 版本选择 -&gt; <code>Fabric</code> 版本 选择 <code>0.11.6</code>。</p>
+<p>在 启动标签页 -&gt; 版本选择 -&gt; <code>Fabric API</code> 版本 选择 <code>0.40.0</code>。</p>
+<p>在 启动标签页 -&gt; 版本设置 -&gt; mod 管理 -&gt;  打开 mod 文件夹。</p>
+<p>将服主发来的 <code>mod.zip</code> 解压到打开的文件夹里。</p>
+<img src="https://i.loli.net/2021/09/09/6Cn9ELGO5Ky4WS7.png" alt="image-20210909183610441" style="zoom: 80%;" />
+
+    </div>
+
+    
+    
+    
+      <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #66ccff;font-size:14px;">-EOF-</div>
+    
+</div>
+      
+      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%91%B8%E9%B1%BC/" rel="tag"># 摸鱼</a>
+              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/02/16/2025_Japan_After_Travel/" rel="prev" title="【日常】2025 日本旅行 Log">
+      <i class="fa fa-chevron-left"></i> 【日常】2025 日本旅行 Log
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/02/23/%E6%9F%90%E4%BA%9BPDF%E5%8A%A0%E5%AF%86%E5%88%86%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%8E%B7%E5%8F%96%E6%BA%90%E6%96%87%E4%BB%B6/" rel="next" title="【赛博保安】某些 PDF 加密分享平台获取源文件">
+      【赛博保安】某些 PDF 加密分享平台获取源文件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8-minecraft-%E5%AE%98%E6%96%B9-server-PCL2-%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F"><span class="nav-number">1.</span> <span class="nav-text">优雅地使用 minecraft 官方 server + PCL2 联机游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">1.1.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x0-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">0x0 服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x1-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.2.</span> <span class="nav-text">0x1 服务器配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0x1-1-%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%A6%E6%88%B7%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">0x1.1 服务器账户配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x1-2-%E5%AE%89%E8%A3%85-screen"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">0x1.2 安装 screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x1-3%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9C%8B%E7%9A%84shell"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">0x1.3安装一个更好看的shell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x2-%E5%AE%89%E8%A3%85OpenJDK"><span class="nav-number">1.1.3.</span> <span class="nav-text">0x2 安装OpenJDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x3-%E4%B8%8B%E8%BD%BD%E3%80%81%E5%90%AF%E5%8A%A8%E5%B9%B6%E9%85%8D%E7%BD%AE-minecraft-server"><span class="nav-number">1.1.4.</span> <span class="nav-text">0x3 下载、启动并配置 minecraft server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%89%88-server"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">官方版 server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Forge-%E7%89%88-server"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">Forge 版  server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fabric-%E7%89%88-server"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">Fabric 版 server</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x4-%E5%9C%A8-screen-%E9%A1%B5%E9%9D%A2%E4%B8%AD%E8%BF%90%E8%A1%8C-server"><span class="nav-number">1.1.5.</span> <span class="nav-text">0x4 在 screen 页面中运行 server</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">1.2.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x0-%E4%B8%8B%E8%BD%BD%E5%90%AF%E5%8A%A8%E5%99%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">0x0 下载启动器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%89%88%E7%8E%A9%E5%AE%B6"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">正版玩家</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%97%E7%89%88%E7%8E%A9%E5%AE%B6"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">盗版玩家</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x1-%E6%B7%BB%E5%8A%A0-mod"><span class="nav-number">1.2.2.</span> <span class="nav-text">0x1 添加 mod</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Forge"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Forge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fabric"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Fabric</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MasterNoah/NoahTie"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">MasterNoah/NoahTie</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/noahbox" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;noahbox" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:noahtie@duck.com" title="E-Mail → mailto:noahtie@duck.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://masternoah.lofter.com/" title="https:&#x2F;&#x2F;masternoah.lofter.com&#x2F;" rel="noopener" target="_blank">Noah的Lofter主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dicecho.com/account/6048c166aed4d4001dfe89e6" title="https:&#x2F;&#x2F;www.dicecho.com&#x2F;account&#x2F;6048c166aed4d4001dfe89e6" rel="noopener" target="_blank">Noah的Dicecho主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.noahtie.site/" title="https:&#x2F;&#x2F;blog.noahtie.site&#x2F;" rel="noopener" target="_blank">Noah的博客站点</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MasterNoah</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 31094,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'mqyLbi5yBBtoXYLz5apgRROM-gzGzoHsz',
+      appKey     : 'YXWSW4teiVpIqLFpCSfAYXsI',
+      placeholder: "来说点什么嘛？",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://mqylbi5y.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

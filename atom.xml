@@ -1,20 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Noah&#39;s TRPG Box</title>
+  <title>Noah&#39;s Box</title>
   <icon>http://noahbox.github.io/icon.png</icon>
   <subtitle>Hell is Other People.</subtitle>
   <link href="http://noahbox.github.io/atom.xml" rel="self"/>
   
   <link href="http://noahbox.github.io/"/>
-  <updated>2025-02-16T14:57:18.889Z</updated>
+  <updated>2025-02-23T13:30:11.167Z</updated>
   <id>http://noahbox.github.io/</id>
   
   <author>
-    <name>MasterNoah</name>
+    <name>MasterNoah/NoahTie</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【赛博保安】某些 PDF 加密分享平台获取源文件</title>
+    <link href="http://noahbox.github.io/2025/02/23/%E6%9F%90%E4%BA%9BPDF%E5%8A%A0%E5%AF%86%E5%88%86%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%8E%B7%E5%8F%96%E6%BA%90%E6%96%87%E4%BB%B6/"/>
+    <id>http://noahbox.github.io/2025/02/23/%E6%9F%90%E4%BA%9BPDF%E5%8A%A0%E5%AF%86%E5%88%86%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%8E%B7%E5%8F%96%E6%BA%90%E6%96%87%E4%BB%B6/</id>
+    <published>2025-02-23T13:30:00.000Z</published>
+    <updated>2025-02-23T13:30:11.167Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文章没有针对任何厂商和平台, 我只是平等地看不起所有把开源代码修改几下, 自以为是地加个所谓的”加密”, 就敢把产品拿出来祸害用户的垃圾厂商.&lt;/p&gt;
+&lt;p&gt;本文章的所有内容纯属虚构, 如有雷同纯属巧合.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h</summary>
+        
+      
+    
+    
+    
+    <category term="赛博保安" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/"/>
+    
+    <category term="Web安全" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/Web%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="Web安全" scheme="http://noahbox.github.io/tags/Web%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>优雅地使用 minecraft 官方 server + PCL2 联机游戏</title>
+    <link href="http://noahbox.github.io/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/"/>
+    <id>http://noahbox.github.io/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/</id>
+    <published>2025-02-23T09:59:49.393Z</published>
+    <updated>2021-09-13T16:21:13.641Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;优雅地使用-minecraft-官方-server-PCL2-联机游戏&quot;&gt;&lt;a href=&quot;#优雅地使用-minecraft-官方-server-PCL2-联机游戏&quot; class=&quot;headerlink&quot; title=&quot;优雅地使用 minecraft 官方 server + PCL2 联机游戏&quot;&gt;&lt;/a&gt;优雅地使用 &lt;code&gt;minecraft&lt;/code&gt; 官方 server + &lt;code&gt;PCL2&lt;/code&gt; 联机游戏&lt;/h1&gt;&lt;p&gt;最近学了《数字电路与逻辑分析》，想起来去年某学长考试前靠 MC 的红石电路复习，然后，本着&lt;del&gt;学习数电&lt;/del&gt;摸鱼的目的，搭了一个 MC 的服务器（便于大家交流学习（逃&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="运维" scheme="http://noahbox.github.io/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="摸鱼" scheme="http://noahbox.github.io/tags/%E6%91%B8%E9%B1%BC/"/>
+    
+    <category term="游戏" scheme="http://noahbox.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>【日常】2025 日本旅行 Log</title>
@@ -978,6 +1030,81 @@
     <category term="原创" scheme="http://noahbox.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
     <category term="古城事件簿" scheme="http://noahbox.github.io/tags/%E5%8F%A4%E5%9F%8E%E4%BA%8B%E4%BB%B6%E7%B0%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Walkthrough for DC-03</title>
+    <link href="http://noahbox.github.io/2021/04/27/DC-03/"/>
+    <id>http://noahbox.github.io/2021/04/27/DC-03/</id>
+    <published>2021-04-27T03:30:00.000Z</published>
+    <updated>2025-02-23T10:00:42.708Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Walkthrough-for-DC-03&quot;&gt;&lt;a href=&quot;#Walkthrough-for-DC-03&quot; class=&quot;headerlink&quot; title=&quot;Walkthrough for DC-03&quot;&gt;&lt;/a&gt;Walkthrough for DC-03&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Description&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;DC-3 is another purposely built vulnerable lab with the intent of gaining experience in the world of penetration testing.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;As with the previous DC releases, this one is designed with beginners in mind, although this time around, there is only one flag, one entry point and no clues at all.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Linux skills and familiarity with the Linux command line are a must, as is some experience with basic penetration testing tools.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For beginners, Google can be of great assistance, but you can always tweet me at @DCAU7 for assistance to get you going again. But take note: I won&amp;#x27;t give you the answer, instead, I&amp;#x27;ll give you an idea about how to move forward.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For those with experience doing CTF and Boot2Root challenges, this probably won&amp;#x27;t take you long at all (in fact, it could take you less than 20 minutes easily).&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;If that&amp;#x27;s the case, and if you want it to be a bit more of a challenge, you can always redo the challenge and explore other ways of gaining root and obtaining the flag.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="赛博保安" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/"/>
+    
+    <category term="Pentest" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/Pentest/"/>
+    
+    
+    <category term="Pentest" scheme="http://noahbox.github.io/tags/Pentest/"/>
+    
+    <category term="DC" scheme="http://noahbox.github.io/tags/DC/"/>
+    
+    <category term="Walkthrough" scheme="http://noahbox.github.io/tags/Walkthrough/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Walkthrough for DC-02</title>
+    <link href="http://noahbox.github.io/2021/04/24/DC-02/"/>
+    <id>http://noahbox.github.io/2021/04/24/DC-02/</id>
+    <published>2021-04-24T12:03:25.000Z</published>
+    <updated>2025-02-23T10:00:39.190Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Walkthrough-for-DC-02&quot;&gt;&lt;a href=&quot;#Walkthrough-for-DC-02&quot; class=&quot;headerlink&quot; title=&quot;Walkthrough for DC-02&quot;&gt;&lt;/a&gt;Walkthrough for DC-02&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Description&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Much like DC-1, DC-2 is another purposely built vulnerable lab for the purpose of gaining experience in the world of penetration testing.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;就像DC-1一样，DC-2是另一个专门构建的易受攻击的实验室，目的是获得渗透测试领域的经验。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;As with the original DC-1, it&amp;#x27;s designed with beginners in mind.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;与DC-1，它的设计充分考虑初学者。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Linux skills and familiarity with the Linux command line are a must, as is some experience with basic penetration testing tools.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;需要具备Linux技能并熟悉Linux命令行，以及一些基本渗透测试工具。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Just like with DC-1, there are five flags including the final flag.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;与DC-1一样，共有包括final flag在内的5个flag。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;And again, just like with DC-1, the flags are important for beginners, but not so important for those who have experience.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;同样，就像DC-1一样，flag对于初学者来说很重要，但对有经验的人则不那么重要。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;In short, the only flag that really counts, is the final flag.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简而言之，唯一真正重要的flag是final flag。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For beginners, Google is your friend. Well, apart from all the privacy concerns etc etc.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;对于初学者来说，Google是您的朋友。 好吧，除了所有的隐私问题等等。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I haven&amp;#x27;t explored all the ways to achieve root, as I scrapped the previous version I had been working on, and started completely fresh apart from the base OS install.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;我没有探索获取root权限的所有方法，因为我废弃了我一直在使用的先前版本，并且除了基本的OS安装之外，还开始全新的学习。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="赛博保安" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/"/>
+    
+    <category term="Pentest" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/Pentest/"/>
+    
+    
+    <category term="Pentest" scheme="http://noahbox.github.io/tags/Pentest/"/>
+    
+    <category term="DC" scheme="http://noahbox.github.io/tags/DC/"/>
+    
+    <category term="Walkthrough" scheme="http://noahbox.github.io/tags/Walkthrough/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Walkthrough for DC-01</title>
+    <link href="http://noahbox.github.io/2021/04/22/DC-01/"/>
+    <id>http://noahbox.github.io/2021/04/22/DC-01/</id>
+    <published>2021-04-22T07:25:38.000Z</published>
+    <updated>2025-02-23T10:00:36.452Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Walkthrough-for-DC-01&quot;&gt;&lt;a href=&quot;#Walkthrough-for-DC-01&quot; class=&quot;headerlink&quot; title=&quot;Walkthrough for DC-01&quot;&gt;&lt;/a&gt;Walkthrough for DC-01&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Description&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简介&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;DC-1 is a purposely built vulnerable lab for the purpose of gaining experience in the world of penetration testing.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;DC-1是为增长渗透测试经验而搭建的渗透测试靶机。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;It was designed to be a challenge for beginners, but just how easy it is will depend on your skills and knowledge, and your ability to learn.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;它设计给新手，但它的难度取决于你的知识与技能、以及学习能力。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;To successfully complete this challenge, you will require Linux skills, familiarity with the Linux command line and experience with basic penetration testing tools, such as the tools that can be found on Kali Linux, or Parrot Security OS.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;你需要linux技能（熟悉linux命令行）、基本的渗透测试工具（Kali Linux预装工具或Parrot Security OS）。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;There are multiple ways of gaining root, however, I have included some flags which contain clues for beginners.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;有很多种提权方法，不过，我在靶机中放置了一些flag作为给新手的提示。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;There are five flags in total, but the ultimate goal is to find and read the flag in root&amp;#x27;s home directory. You don&amp;#x27;t even need to be root to do this, however, you will require root privileges.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;一共有5个flag，但最终目标是读取root目录下的flag。你甚至不需要root账号，但至少需要root权限。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Depending on your skill level, you may be able to skip finding most of these flags and go straight for root.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如果你够强，你或许会跳过大多数flag直冲root。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Beginners may encounter challenges that they have never come across previously, but a Google search should be all that is required to obtain the information required to complete this challenge.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;新手或许会遭遇到从来没有遇见过的挑战，去谷歌搜吧。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="赛博保安" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/"/>
+    
+    <category term="Pentest" scheme="http://noahbox.github.io/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/Pentest/"/>
+    
+    
+    <category term="Pentest" scheme="http://noahbox.github.io/tags/Pentest/"/>
+    
+    <category term="DC" scheme="http://noahbox.github.io/tags/DC/"/>
+    
+    <category term="Walkthrough" scheme="http://noahbox.github.io/tags/Walkthrough/"/>
     
   </entry>
   

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-noah.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-noah.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-noah.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"noahbox.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="Walkthrough for DC-011234567891011121314151617181920212223Description简介DC-1 is a purposely built vulnerable lab for the purpose of gaining experience in the world of penetration testing.DC-1是为增长渗透测试经验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Walkthrough for DC-01">
+<meta property="og:url" content="http://noahbox.github.io/2021/04/22/DC-01/index.html">
+<meta property="og:site_name" content="Noah&#39;s Box">
+<meta property="og:description" content="Walkthrough for DC-011234567891011121314151617181920212223Description简介DC-1 is a purposely built vulnerable lab for the purpose of gaining experience in the world of penetration testing.DC-1是为增长渗透测试经验">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/OSVYN6UytJ7WzrP.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/YhDXCL9gpEOF5NB.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/Ks5LpNyHklZhiBv.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/76Pdr5JspjoHvWG.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/kdI2zoTsuGEj4WL.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/rYXSa8NxZjHcw3m.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/aPXpR2SUOQ7DrCe.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/a3UVbrT4HSK69yR.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/S5fZ89NypsXn4Ba.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/Qmuq5tM8YX6JAEe.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/oCLeK5xrcWF2lER.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/dMmqljEuvxVtKyX.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/89v7K3R2L6nEw5s.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/P6jVUQioaFRfzWX.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/ZVGRH36KpFkOYwg.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/zNZJWchfajC97qA.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/xd3oLFbZqpDKGfn.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/zuVTE6YlS1HKAbg.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/tTjzClS2ihYeZNp.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/jc6HJ54aolqGFWt.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/tKNS1HG8uxM6hBo.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/IDLMJ9cyxhQnkjr.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/7DNHYgJpjn4udlA.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/oUk3tlg9Rju2JdP.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/Xg1doQNpAm5Y8Ov.png">
+<meta property="og:image" content="https://i.loli.net/2021/04/22/PCGj82zIuTyE9bp.png">
+<meta property="article:published_time" content="2021-04-22T07:25:38.000Z">
+<meta property="article:modified_time" content="2025-02-23T10:00:36.452Z">
+<meta property="article:author" content="MasterNoah&#x2F;NoahTie">
+<meta property="article:tag" content="Pentest">
+<meta property="article:tag" content="DC">
+<meta property="article:tag" content="Walkthrough">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/04/22/OSVYN6UytJ7WzrP.png">
+
+<link rel="canonical" href="http://noahbox.github.io/2021/04/22/DC-01/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Walkthrough for DC-01 | Noah's Box</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Noah's Box" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Noah's Box</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hell is Other People.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言簿</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://noahbox.github.io/2021/04/22/DC-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="MasterNoah/NoahTie">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Noah's Box">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Walkthrough for DC-01
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-22 15:25:38" itemprop="dateCreated datePublished" datetime="2021-04-22T15:25:38+08:00">2021-04-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-23 18:00:36" itemprop="dateModified" datetime="2025-02-23T18:00:36+08:00">2025-02-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/" itemprop="url" rel="index"><span itemprop="name">赛博保安</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B5%9B%E5%8D%9A%E4%BF%9D%E5%AE%89/Pentest/" itemprop="url" rel="index"><span itemprop="name">Pentest</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/04/22/DC-01/" class="post-meta-item leancloud_visitors" data-flag-title="Walkthrough for DC-01" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/04/22/DC-01/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/22/DC-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Walkthrough-for-DC-01"><a href="#Walkthrough-for-DC-01" class="headerlink" title="Walkthrough for DC-01"></a>Walkthrough for DC-01</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Description</span><br><span class="line">简介</span><br><span class="line"></span><br><span class="line">DC-1 is a purposely built vulnerable lab for the purpose of gaining experience in the world of penetration testing.</span><br><span class="line">DC-1是为增长渗透测试经验而搭建的渗透测试靶机。</span><br><span class="line"></span><br><span class="line">It was designed to be a challenge for beginners, but just how easy it is will depend on your skills and knowledge, and your ability to learn.</span><br><span class="line">它设计给新手，但它的难度取决于你的知识与技能、以及学习能力。</span><br><span class="line"></span><br><span class="line">To successfully complete this challenge, you will require Linux skills, familiarity with the Linux command line and experience with basic penetration testing tools, such as the tools that can be found on Kali Linux, or Parrot Security OS.</span><br><span class="line">你需要linux技能（熟悉linux命令行）、基本的渗透测试工具（Kali Linux预装工具或Parrot Security OS）。</span><br><span class="line"></span><br><span class="line">There are multiple ways of gaining root, however, I have included some flags which contain clues for beginners.</span><br><span class="line">有很多种提权方法，不过，我在靶机中放置了一些flag作为给新手的提示。</span><br><span class="line"></span><br><span class="line">There are five flags in total, but the ultimate goal is to find and read the flag in root&#x27;s home directory. You don&#x27;t even need to be root to do this, however, you will require root privileges.</span><br><span class="line">一共有5个flag，但最终目标是读取root目录下的flag。你甚至不需要root账号，但至少需要root权限。</span><br><span class="line"></span><br><span class="line">Depending on your skill level, you may be able to skip finding most of these flags and go straight for root.</span><br><span class="line">如果你够强，你或许会跳过大多数flag直冲root。</span><br><span class="line"></span><br><span class="line">Beginners may encounter challenges that they have never come across previously, but a Google search should be all that is required to obtain the information required to complete this challenge.</span><br><span class="line">新手或许会遭遇到从来没有遇见过的挑战，去谷歌搜吧。</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a target="_blank" rel="noopener" href="https://www.five86.com/dc-1.html">https://www.five86.com/dc-1.html</a></p>
+<h2 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h2><p>打开一个win虚拟机，netsparker先扫着。</p>
+<p>另一边开一个Kali，nmap扫描端口。</p>
+<p><img src="https://i.loli.net/2021/04/22/OSVYN6UytJ7WzrP.png" alt="Nmap扫描结果"></p>
+<p>看到有一个80端口上运行的是Apache，打开网页看看。</p>
+<p><img src="https://i.loli.net/2021/04/22/YhDXCL9gpEOF5NB.png" alt="Drupal"></p>
+<p>是个Drupal搭建的网站，上面扫描爆出来网站有robots文件，打开看一下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># robots.txt</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># This file is to prevent the crawling and indexing of certain parts</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> of your site by web crawlers and spiders run by sites like Yahoo!</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> and Google. By telling these <span class="string">&quot;robots&quot;</span> <span class="built_in">where</span> not to go on your site,</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> you save bandwidth and server resources.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># This file will be ignored unless it is at the root of your host:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Used:    http://example.com/robots.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Ignored: http://example.com/site/robots.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># For more information about the robots.txt standard, see:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://www.robotstxt.org/wc/robots.html</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># For syntax checking, see:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://www.sxw.org.uk/computing/robots/check.html</span></span><br><span class="line"></span><br><span class="line">User-agent: *</span><br><span class="line">Crawl-delay: 10</span><br><span class="line"><span class="meta">#</span><span class="bash"> Directories</span></span><br><span class="line">Disallow: /includes/</span><br><span class="line">Disallow: /misc/</span><br><span class="line">Disallow: /modules/</span><br><span class="line">Disallow: /profiles/</span><br><span class="line">Disallow: /scripts/</span><br><span class="line">Disallow: /themes/</span><br><span class="line"><span class="meta">#</span><span class="bash"> Files</span></span><br><span class="line">Disallow: /CHANGELOG.txt</span><br><span class="line">Disallow: /cron.php</span><br><span class="line">Disallow: /INSTALL.mysql.txt</span><br><span class="line">Disallow: /INSTALL.pgsql.txt</span><br><span class="line">Disallow: /INSTALL.sqlite.txt</span><br><span class="line">Disallow: /install.php</span><br><span class="line">Disallow: /INSTALL.txt</span><br><span class="line">Disallow: /LICENSE.txt</span><br><span class="line">Disallow: /MAINTAINERS.txt</span><br><span class="line">Disallow: /update.php</span><br><span class="line">Disallow: /UPGRADE.txt</span><br><span class="line">Disallow: /xmlrpc.php</span><br><span class="line"><span class="meta">#</span><span class="bash"> Paths (clean URLs)</span></span><br><span class="line">Disallow: /admin/</span><br><span class="line">Disallow: /comment/reply/</span><br><span class="line">Disallow: /filter/tips/</span><br><span class="line">Disallow: /node/add/</span><br><span class="line">Disallow: /search/</span><br><span class="line">Disallow: /user/register/</span><br><span class="line">Disallow: /user/password/</span><br><span class="line">Disallow: /user/login/</span><br><span class="line">Disallow: /user/logout/</span><br><span class="line"><span class="meta">#</span><span class="bash"> Paths (no clean URLs)</span></span><br><span class="line">Disallow: /?q=admin/</span><br><span class="line">Disallow: /?q=comment/reply/</span><br><span class="line">Disallow: /?q=filter/tips/</span><br><span class="line">Disallow: /?q=node/add/</span><br><span class="line">Disallow: /?q=search/</span><br><span class="line">Disallow: /?q=user/password/</span><br><span class="line">Disallow: /?q=user/register/</span><br><span class="line">Disallow: /?q=user/login/</span><br><span class="line">Disallow: /?q=user/logout/</span><br></pre></td></tr></table></figure>
+
+<p>大概翻了一下，看到UPGRADE.txt里面有这么一行。估计这应该是个7.x或者6.x的Drupal。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INTRODUCTION</span><br><span class="line">------------</span><br><span class="line">This document describes how to:</span><br><span class="line"></span><br><span class="line">  * Update your Drupal site from one minor 7.x version to another minor 7.x</span><br><span class="line">    version; for example, from 7.8 to 7.9, or from 7.6 to 7.10.</span><br><span class="line"></span><br><span class="line">  * Upgrade your Drupal site&#x27;s major version from 6.x to 7.x.</span><br></pre></td></tr></table></figure>
+
+<p>上Metasploit，看看有没有和Drupal相关的EXP。</p>
+<p><img src="https://i.loli.net/2021/04/22/Ks5LpNyHklZhiBv.png" alt="drupal模块"></p>
+<p>此时netsparker也扫出来一些东西。</p>
+<p><img src="https://i.loli.net/2021/04/22/76Pdr5JspjoHvWG.png" alt="扫描差不多了"></p>
+<p>试用了几个drupal模块，发现使用drupal_drupalgeddon2可以进入meterpreter交互模式。</p>
+<p><img src="https://i.loli.net/2021/04/22/kdI2zoTsuGEj4WL.png" alt="拿到shell"></p>
+<p>然后找到flag1.txt</p>
+<p><img src="https://i.loli.net/2021/04/22/rYXSa8NxZjHcw3m.png" alt="image-20200818113045668"></p>
+<h2 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h2><p>根据flag1的提示，我们要找drupal的配置文件。感谢万能的谷歌。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">settings.php</span><br><span class="line"><span class="variable">$settings</span>[<span class="string">&#x27;file_public_path&#x27;</span>] = <span class="string">&#x27;sites/default/files&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/04/22/aPXpR2SUOQ7DrCe.png" alt="image-20200818113348603"></p>
+<h2 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h2><p>在flag2之后有一个数据库的密码和账号。</p>
+<p><img src="https://i.loli.net/2021/04/22/a3UVbrT4HSK69yR.png" alt="image-20200818114305791"></p>
+<p>获取shell，登陆一下mysql试试。</p>
+<p><img src="https://i.loli.net/2021/04/22/S5fZ89NypsXn4Ba.png" alt="image-20200818114554970"></p>
+<p>然而没有正常回显信息，原因不明。</p>
+<blockquote>
+<p>后来看了官方的walkthrough，也没有说明此处mysql为什么没有回显。大概是限制了某些进程的回显？</p>
+</blockquote>
+<p>测试一下服务器有没有配置python环境。</p>
+<p><img src="https://i.loli.net/2021/04/22/Qmuq5tM8YX6JAEe.png" alt="image-20200818115039622"></p>
+<p>发现了python2，尝试通过python获取一个pty。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pty</span><br><span class="line">pty.spawn(<span class="string">&#x27;/bin/bash&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2021/04/22/oCLeK5xrcWF2lER.png" alt="image-20200818115633785"></p>
+<p>成功登录mysql，获取回显。</p>
+<p><img src="https://i.loli.net/2021/04/22/dMmqljEuvxVtKyX.png" alt="image-20200818115855568"></p>
+<p><img src="https://i.loli.net/2021/04/22/89v7K3R2L6nEw5s.png" alt="image-20200818115934447"></p>
+<p><img src="https://i.loli.net/2021/04/22/P6jVUQioaFRfzWX.png" alt="image-20200818120006057"></p>
+<p>查看users表。</p>
+<p><img src="https://i.loli.net/2021/04/22/ZVGRH36KpFkOYwg.png" alt="image-20200818120146011"></p>
+<blockquote>
+<p>users表中原本只有前两行数据，后面的数据是我在做题的过程中加进去的。</p>
+</blockquote>
+<h3 id="世界线一"><a href="#世界线一" class="headerlink" title="世界线一"></a>世界线一</h3><p>回到metasploit，搜索一下有没有关于在drupal中获取admin权限的脚本。</p>
+<p><img src="https://i.loli.net/2021/04/22/zNZJWchfajC97qA.png" alt="image-20210422101916951"></p>
+<p>发现了一个适用于<code>drupal 7.0 &lt;  7.31</code>的添加admin用户的sql注入脚本。运行，成功添加了admin用户。</p>
+<p><img src="https://i.loli.net/2021/04/22/xd3oLFbZqpDKGfn.png" alt="image-20210422103109153"></p>
+<p>然后在dashboard中找到了flag3。</p>
+<p><img src="https://i.loli.net/2021/04/22/zuVTE6YlS1HKAbg.png" alt="image-20210422103300919"></p>
+<h3 id="世界线二"><a href="#世界线二" class="headerlink" title="世界线二"></a>世界线二</h3><p>做完题后突然想起来，mysql数据库user表里的password字段的加密方式以前似乎从来没有见过。在谷歌上稍微搜了一下，发现原来是Drupal的一种特殊格式。</p>
+<blockquote>
+<p>Drupal7默认使用SHA512+salt。 通过PHP的哈希函数运行哈希，以增加生成密码最终哈希的安全性。该实现分为两个全局函数：<code>user_hash_password()</code>和<code>_password_crypt()</code>。</p>
+<p>这是Drupal 7中的示例哈希：</p>
+<ul>
+<li><p><code>$S$Dxl65W9p07LfQU7jvy5CnsyDpMoLujiAgzy123khcg1OJi/P9pKS</code></p>
+</li>
+<li><p>字符0-2是类型（<code>$S$</code>是Drupal7）</p>
+</li>
+<li><p>字符3是基于char在此列表中的位置的log2回合数(X)：<code>./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</code>。因此，在示例中，“ D”将映射到15</p>
+</li>
+<li><p>字符4-11是SALT</p>
+</li>
+<li><p>其余的是使用2^X个回合的SHA512。</p>
+</li>
+<li><p>然后使用base64将二进制结果转换为字符串。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$count</span> = <span class="number">1</span> &lt;&lt; <span class="variable">$count_log2</span>;</span><br><span class="line"> <span class="variable">$hash</span> = hash(<span class="variable">$algo</span>,<span class="variable">$salt</span>,<span class="variable">$password</span>,<span class="literal">true</span>);</span><br><span class="line"> <span class="keyword">do</span> &#123; <span class="variable">$hash</span> = hash(<span class="variable">$algo</span>,<span class="variable">$hash</span>,<span class="variable">$password</span>,<span class="literal">TRUE</span>);</span><br><span class="line"> &#125; <span class="keyword">while</span>( --<span class="variable">$count</span>);</span><br></pre></td></tr></table></figure>
+<p>整个过程可以在以下位置找到：<code>mydrupalsite\includes\password.inc</code></p>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="function"><span class="keyword">function</span> <span class="title">user_check_password</span>(<span class="params"><span class="variable">$password</span>, <span class="variable">$account</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (substr(<span class="variable">$account</span>-&gt;pass, <span class="number">0</span>, <span class="number">2</span>) == <span class="string">&#x27;U$&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// This may be an updated password from user_update_7000(). Such hashes</span></span><br><span class="line">    <span class="comment">// have &#x27;U&#x27; added as the first character and need an extra md5().</span></span><br><span class="line">    <span class="variable">$stored_hash</span> = substr(<span class="variable">$account</span>-&gt;pass, <span class="number">1</span>);</span><br><span class="line">    <span class="variable">$password</span> = md5(<span class="variable">$password</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable">$stored_hash</span> = <span class="variable">$account</span>-&gt;pass;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$type</span> = substr(<span class="variable">$stored_hash</span>, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line">  <span class="keyword">switch</span> (<span class="variable">$type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;$S$&#x27;</span>:</span><br><span class="line">      <span class="comment">// A normal Drupal 7 password using sha512.</span></span><br><span class="line">      <span class="variable">$hash</span> = _password_crypt(<span class="string">&#x27;sha512&#x27;</span>, <span class="variable">$password</span>, <span class="variable">$stored_hash</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;$H$&#x27;</span>:</span><br><span class="line">      <span class="comment">// phpBB3 uses &quot;$H$&quot; for the same thing as &quot;$P$&quot;.</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;$P$&#x27;</span>:</span><br><span class="line">      <span class="comment">// A phpass password generated using md5.  This is an</span></span><br><span class="line">      <span class="comment">// imported password or from an earlier Drupal version.</span></span><br><span class="line">      <span class="variable">$hash</span> = _password_crypt(<span class="string">&#x27;md5&#x27;</span>, <span class="variable">$password</span>, <span class="variable">$stored_hash</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">FALSE</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (<span class="variable">$hash</span> &amp;&amp; <span class="variable">$stored_hash</span> == <span class="variable">$hash</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+<p>既然如此，应该可以用hashcat爆破。</p>
+<p>在hashcat的module中搜索了一下，发现还真有针对drupal7的爆破模块。</p>
+<p><img src="https://i.loli.net/2021/04/22/tTjzClS2ihYeZNp.png" alt="image-20210422104454889"></p>
+<p>从users表中取出admin的密码，用hashcat跑一下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashcat -m 7900 -a 0 ./pass.txt ./dict.dic</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/04/22/jc6HJ54aolqGFWt.png" alt="image-20210422113147583"></p>
+<p>跑出来密码是<code>53cr3t</code>。用管理员账号登录之后，在dashboard看到flag。</p>
+<h3 id="世界线三"><a href="#世界线三" class="headerlink" title="世界线三"></a>世界线三</h3><p>然而，在搜索关于drupal的密码时，一不小心看到了<code>how to reset drupal7 admin password</code>的提问，点开看了看，发现有一个专门用于管理drupal的shell接口，可以用于修改用户账号。</p>
+<p>在pty中，使用drush将admin的密码修改为admin。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drush user-password admin --password=&quot;admin&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2021/04/22/tKNS1HG8uxM6hBo.png" alt="image-20210422114724499"></p>
+<h2 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h2><p>根据flag3的提示，去谷歌了一下<code>linux perm su</code>，发现一个关于<code>SUID</code>的提权方式。</p>
+<blockquote>
+<p>文件权限除了r、w、x外还有==s==、t、i、a权限。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s权限，设置使文件在执行阶段具有文件所有者的权限，相当于临时拥有文件所有者的身份。</span><br><span class="line">t权限，针对目录，任何用户都可以在此目录中创建文件，但只能删除自己的文件。</span><br><span class="line">i权限，不可修改的权限。</span><br><span class="line">a权限，只追加的权限。</span><br></pre></td></tr></table></figure>
+
+<p><strong>SUID</strong><br> 当执行的文件被赋予了s权限，就被称为Set UID，简称为SUID的特殊权限。八进制数为4000。</p>
+<ul>
+<li>SUID权限仅对二进制程序有效</li>
+<li>执行该程序必须具有x的执行权限，否则s权限并不能真正生效</li>
+<li>本权限仅在执行该程序的过程中有效，拥有临时身份</li>
+<li>执行者将具有该程序拥有者(owner)的权限</li>
+</ul>
+<p><strong>查找具有SUID权限的文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line">/表示从文件系统的顶部（根）开始并找到每个目录</span><br><span class="line">-perm 表示搜索随后的权限</span><br><span class="line">-u=s表示查找root用户拥有的文件</span><br><span class="line">-type表示我们正在寻找的文件类型</span><br><span class="line">f 表示常规文件，而不是目录或特殊文件</span><br><span class="line">2表示该进程的第二个文件描述符，即stderr（标准错误）</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">表示重定向</span></span><br><span class="line">/dev/null是一个特殊的文件系统对象，它将丢弃写入其中的所有内容。</span><br></pre></td></tr></table></figure>
+
+<p>还有额外的几个命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find / -user root -perm -4000 -print 2&gt;/dev/null</span><br><span class="line">find / -user root -perm -4000 -exec ls -ldb &#123;&#125; </span><br></pre></td></tr></table></figure>
+
+<p>详见：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5ac4602b14c6">linux 提权-SUID提权</a></p>
+</blockquote>
+<p>找到具有root的SUID的文件。</p>
+<p><img src="https://i.loli.net/2021/04/22/IDLMJ9cyxhQnkjr.png" alt="image-20210422120124397"></p>
+<p>文章中给了一个可以查找SUID利用方式的网页 <a target="_blank" rel="noopener" href="https://gtfobins.github.io/">GTFObins</a> ,挨个搜索，发现find有利用方法：</p>
+<blockquote>
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p>It can be used to break out from restricted environments by spawning an interactive system shell.<br>它可以通过生成交互式系统外壳程序来脱离受限环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -exec /bin/sh \; -quit</span><br></pre></td></tr></table></figure>
+
+<h2 id="SUID"><a href="#SUID" class="headerlink" title="SUID"></a>SUID</h2><p>If the binary has the SUID bit set, it does not drop the elevated privileges and may be abused to access the file system, escalate or maintain privileged access as a SUID backdoor. If it is used to run <code>sh -p</code>, omit the <code>-p</code> argument on systems like Debian (&lt;= Stretch) that allow the default <code>sh</code> shell to run with SUID privileges.<br>如果二进制文件有SUID，则它存在提升的特权，并且可能被滥用来访问文件系统、提权或维护特权访问（作为SUID后门）。 如果用于运行<code>sh -p</code>（请在Debian（&lt;= Stretch）之类的系统上省略<code>-p</code>参数），该参数允许默认的<code>sh</code> 以SUID特权运行。</p>
+<p>This example creates a local SUID copy of the binary and runs it to maintain elevated privileges. To interact with an existing SUID binary skip the first command and run the program using its original path.<br>本示例创建二进制文件的本地SUID副本并运行它以维护提升的特权。 要与现有的SUID二进制文件进行交互，请跳过第一个命令，并使用其原始路径运行该程序。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo install -m =xs $(which find) .</span><br><span class="line">find . -exec /bin/sh -p \; -quit</span><br></pre></td></tr></table></figure>
+
+<h2 id="Sudo"><a href="#Sudo" class="headerlink" title="Sudo"></a>Sudo</h2><p>If the binary is allowed to run as superuser by <code>sudo</code>, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.<br>如果二进制文件被sudo允许以超级用户身份运行，它存在提升的特权，并且可以用于访问文件系统、提权或维护特权访问。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo find . -exec /bin/sh \; -quit</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>使用提供的命令，成功提权。</p>
+<p><img src="https://i.loli.net/2021/04/22/7DNHYgJpjn4udlA.png" alt="image-20210422121145817"></p>
+<p>然后找了一圈，最后在<code>/home/flag4</code>找到了flag4。</p>
+<p><img src="https://i.loli.net/2021/04/22/oUk3tlg9Rju2JdP.png" alt="image-20210422121517421"></p>
+<p>然后突然意识到，似乎拿flag4并不需要提权……在www-data用户下用find指令搜索也能拿到flag4。</p>
+<p><img src="https://i.loli.net/2021/04/22/Xg1doQNpAm5Y8Ov.png" alt="image-20210422121702440"></p>
+<h2 id="the-final-flag"><a href="#the-final-flag" class="headerlink" title="the final flag"></a>the final flag</h2><p>已经获取了root权限，按照靶机描述，cd进<code>/root</code>读取flag。</p>
+<p><img src="https://i.loli.net/2021/04/22/PCGj82zIuTyE9bp.png" alt="image-20210422122008689"></p>
+
+    </div>
+
+    
+    
+    
+      <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #66ccff;font-size:14px;">-EOF-</div>
+    
+</div>
+      
+      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Pentest/" rel="tag"># Pentest</a>
+              <a href="/tags/DC/" rel="tag"># DC</a>
+              <a href="/tags/Walkthrough/" rel="tag"># Walkthrough</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/24/DC-02/" rel="next" title="Walkthrough for DC-02">
+      Walkthrough for DC-02 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Walkthrough-for-DC-01"><span class="nav-number">1.</span> <span class="nav-text">Walkthrough for DC-01</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">1.1.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag1"><span class="nav-number">1.2.</span> <span class="nav-text">flag1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag2"><span class="nav-number">1.3.</span> <span class="nav-text">flag2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag3"><span class="nav-number">1.4.</span> <span class="nav-text">flag3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%96%E7%95%8C%E7%BA%BF%E4%B8%80"><span class="nav-number">1.4.1.</span> <span class="nav-text">世界线一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%96%E7%95%8C%E7%BA%BF%E4%BA%8C"><span class="nav-number">1.4.2.</span> <span class="nav-text">世界线二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%96%E7%95%8C%E7%BA%BF%E4%B8%89"><span class="nav-number">1.4.3.</span> <span class="nav-text">世界线三</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag4"><span class="nav-number">1.5.</span> <span class="nav-text">flag4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">1.6.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUID"><span class="nav-number">1.7.</span> <span class="nav-text">SUID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sudo"><span class="nav-number">1.8.</span> <span class="nav-text">Sudo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-final-flag"><span class="nav-number">1.9.</span> <span class="nav-text">the final flag</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MasterNoah/NoahTie"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">MasterNoah/NoahTie</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/noahbox" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;noahbox" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:noahtie@duck.com" title="E-Mail → mailto:noahtie@duck.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fas fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友链
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://masternoah.lofter.com/" title="https:&#x2F;&#x2F;masternoah.lofter.com&#x2F;" rel="noopener" target="_blank">Noah的Lofter主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dicecho.com/account/6048c166aed4d4001dfe89e6" title="https:&#x2F;&#x2F;www.dicecho.com&#x2F;account&#x2F;6048c166aed4d4001dfe89e6" rel="noopener" target="_blank">Noah的Dicecho主页</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.noahtie.site/" title="https:&#x2F;&#x2F;blog.noahtie.site&#x2F;" rel="noopener" target="_blank">Noah的博客站点</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MasterNoah</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 31094,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'mqyLbi5yBBtoXYLz5apgRROM-gzGzoHsz',
+      appKey     : 'YXWSW4teiVpIqLFpCSfAYXsI',
+      placeholder: "来说点什么嘛？",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : 'https://mqylbi5y.lc-cn-n1-shared.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
