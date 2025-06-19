@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Noah&#39;s Box</title>
   <icon>http://noahbox.github.io/icon.png</icon>
-  <subtitle>Hell is Other People.</subtitle>
+  <subtitle>Welcome to an Fantacy Weborld!</subtitle>
   <link href="http://noahbox.github.io/atom.xml" rel="self"/>
   
   <link href="http://noahbox.github.io/"/>
-  <updated>2025-02-23T13:38:57.308Z</updated>
+  <updated>2025-06-19T12:50:25.616Z</updated>
   <id>http://noahbox.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【COC剧本】猫是我</title>
+    <link href="http://noahbox.github.io/2025/06/19/%E7%8C%AB%E6%98%AF%E6%88%91/"/>
+    <id>http://noahbox.github.io/2025/06/19/%E7%8C%AB%E6%98%AF%E6%88%91/</id>
+    <published>2025-06-19T13:00:00.000Z</published>
+    <updated>2025-06-19T12:50:25.616Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2025/06/19/KirnlUdQ2P1gZGj.png&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;剧本简介&quot;&gt;&lt;a href=&quot;#剧本简介&quot; class=&quot;headerlink&quot; title=&quot;剧本简介&quot;&gt;&lt;/a&gt;剧本简介&lt;/h1&gt;&lt;p&gt;这是一则适用于《克苏鲁的呼唤》TRPG 7版规则书的剧本。调查员在游戏中也有可能不幸变身为猫咪，这种情况下，也可以融合《喵酥噜的召唤》（Call of Catthulhu）规则。至少2名玩家将扮演旅行者前往有着“猫岛”之称的小岛·田代岛观光，并在猫咪的注视下展开一场有些诡异又有些可爱的冒险。调查员可以在冒险开始前就相互认识，也可以在游戏开始之后相识。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="COC" scheme="http://noahbox.github.io/categories/COC/"/>
+    
+    <category term="COC剧本" scheme="http://noahbox.github.io/categories/COC/COC%E5%89%A7%E6%9C%AC/"/>
+    
+    
+    <category term="剧本" scheme="http://noahbox.github.io/tags/%E5%89%A7%E6%9C%AC/"/>
+    
+    <category term="原创" scheme="http://noahbox.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【赛博保安】某些 PDF 加密分享平台获取源文件</title>
     <link href="http://noahbox.github.io/2025/02/23/%E6%9F%90%E4%BA%9BPDF%E5%8A%A0%E5%AF%86%E5%88%86%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%8E%B7%E5%8F%96%E6%BA%90%E6%96%87%E4%BB%B6/"/>
     <id>http://noahbox.github.io/2025/02/23/%E6%9F%90%E4%BA%9BPDF%E5%8A%A0%E5%AF%86%E5%88%86%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%8E%B7%E5%8F%96%E6%BA%90%E6%96%87%E4%BB%B6/</id>
     <published>2025-02-23T13:30:00.000Z</published>
-    <updated>2025-02-23T13:38:57.308Z</updated>
+    <updated>2025-03-17T09:13:41.395Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -52,10 +76,10 @@
     <link href="http://noahbox.github.io/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/"/>
     <id>http://noahbox.github.io/2025/02/23/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8minecraft%E5%AE%98%E6%96%B9server+PCL2%E8%81%94%E6%9C%BA%E6%B8%B8%E6%88%8F/</id>
     <published>2025-02-23T09:59:49.393Z</published>
-    <updated>2021-09-13T16:21:13.641Z</updated>
+    <updated>2025-06-19T12:23:47.414Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;优雅地使用-minecraft-官方-server-PCL2-联机游戏&quot;&gt;&lt;a href=&quot;#优雅地使用-minecraft-官方-server-PCL2-联机游戏&quot; class=&quot;headerlink&quot; title=&quot;优雅地使用 minecraft 官方 server + PCL2 联机游戏&quot;&gt;&lt;/a&gt;优雅地使用 &lt;code&gt;minecraft&lt;/code&gt; 官方 server + &lt;code&gt;PCL2&lt;/code&gt; 联机游戏&lt;/h1&gt;&lt;p&gt;最近学了《数字电路与逻辑分析》，想起来去年某学长考试前靠 MC 的红石电路复习，然后，本着&lt;del&gt;学习数电&lt;/del&gt;摸鱼的目的，搭了一个 MC 的服务器（便于大家交流学习（逃&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;最近学了《数字电路与逻辑分析》，想起来去年某学长考试前靠 MC 的红石电路复习，然后，本着&lt;del&gt;学习数电&lt;/del&gt;摸鱼的目的，搭了一个 MC 的服务器（便于大家交流学习（逃&lt;/p&gt;</summary>
     
     
     
@@ -378,7 +402,7 @@
     <link href="http://noahbox.github.io/2022/08/10/%E5%8F%A4%E5%9F%8E%E8%AF%A1%E7%A7%98_remaster/"/>
     <id>http://noahbox.github.io/2022/08/10/%E5%8F%A4%E5%9F%8E%E8%AF%A1%E7%A7%98_remaster/</id>
     <published>2022-08-10T08:50:00.000Z</published>
-    <updated>2023-11-04T12:49:42.435Z</updated>
+    <updated>2025-03-17T09:14:30.140Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/06/23/y2pTPDltjdHvRhI.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
@@ -798,7 +822,7 @@
     <link href="http://noahbox.github.io/2021/06/22/%E5%8F%A4%E5%9F%8E%E8%AF%A1%E7%A7%98/"/>
     <id>http://noahbox.github.io/2021/06/22/%E5%8F%A4%E5%9F%8E%E8%AF%A1%E7%A7%98/</id>
     <published>2021-06-22T05:30:00.000Z</published>
-    <updated>2023-11-04T12:49:42.435Z</updated>
+    <updated>2025-03-17T09:14:23.217Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/06/23/y2pTPDltjdHvRhI.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
