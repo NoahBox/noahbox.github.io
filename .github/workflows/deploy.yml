@@ -33,7 +33,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build site
-        run: pnpm astro build
+        # Use `pnpm build` (not `astro build`) so the Pagefind index step
+        # (`astro build && pagefind --site dist`) also runs and `dist/pagefind/`
+        # gets deployed. Otherwise search returns 404 on GitHub Pages.
+        run: pnpm build
 
       # noahbox.github.io 是用户/组织型 Pages 仓库，GitHub 只允许从 main 分支发布。
       # 因此把构建产物发布到 main 分支（发布分支），newblog 继续作为源码/默认分支。
