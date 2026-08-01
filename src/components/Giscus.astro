@@ -1,0 +1,31 @@
+<div class="giscus"></div>
+
+<script is:inline>
+// 动态加载以适应主题切换
+function loadGiscus() {
+  const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+
+  const script = document.createElement('script');
+  script.src = 'https://giscus.app/client.js';
+  script.setAttribute('data-repo', 'NoahBox/noahbox.github.io');
+  script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkzNzkxMzY1NjI='); // 从giscus.app获取
+  script.setAttribute('data-category', 'Announcements');
+  script.setAttribute('data-category-id', 'DIC_kwDOFpkqMs4DCbOt');
+  script.setAttribute('data-mapping', 'title');
+  script.setAttribute('data-theme', theme);
+  script.setAttribute('data-lang', 'zh-CN');
+  script.setAttribute('crossorigin', 'anonymous');
+  script.async = true;
+
+  document.querySelector('.giscus').appendChild(script);
+}
+
+// 检测主题变化
+const observer = new MutationObserver(loadGiscus);
+observer.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ['class']
+});
+
+window.addEventListener('load', loadGiscus);
+</script>

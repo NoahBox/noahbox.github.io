@@ -29,3 +29,8 @@ yarn.lock
 # ide
 .idea
 *.iml
+
+.workbuddy/
+.vscode/
+
+_tmp*

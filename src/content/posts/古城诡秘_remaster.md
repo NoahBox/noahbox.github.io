@@ -1,0 +1,78 @@
+---
+title: "【COC剧本集】【古城事件簿】古城诡秘 - 重制版"
+published: 2022-08-10
+description: "- 适用于COC7th规则。 - 本剧本集包含了古城事件簿的前三篇剧本。 - 重置了先前的老版本，对排版、部分描述及一些细节进行了大面积调整，修改了部分展示材料。"
+image: "https://i.loli.net/2021/06/23/y2pTPDltjdHvRhI.jpg"
+tags: [古城事件簿, 剧本, 原创]
+category: "COC"
+draft: false
+---
+
+# 剧本集简介
+
+> - 适用于COC7th规则。
+> - 本剧本集包含了古城事件簿的前三篇剧本。
+> - 重置了先前的老版本，对排版、部分描述及一些细节进行了大面积调整，修改了部分展示材料。
+
+欢迎来到古城市——一个沉淀着厚重历史而又在现代化进程中突飞猛进的城市。你将作为守密人带领着一群调查员朋友，在这座城市以及它周边的地区展开一系列令人激动而汗毛耸立的诡秘冒险。
+
+《古城诡秘》是一部面向于有一些带团经验的新手守密人的剧本集，并且在剧本中附注了许多有助于守密人在游戏中做出决策的带团提示。至于调查员，无论他们是从未接触过克苏鲁的呼唤的新手调查员还是已经身经百战的老手，都可以在古城体验克苏鲁神话的独特魅力。
+
+<!-- more -->
+
+《古城诡秘》原设定发生在中国。守密人也可以根据需要将故事背景修改为世界上任何一个国家，并将该剧本集的一篇或多篇剧本放入任何一个战役(建议修改NPC的姓名及地名以切合背景，并且不建议游戏中枪械的大规模使用)。
+
+《古城诡秘》包含三个游玩时间约6-10小时不等的中篇剧本，推荐按照剧本集中的排序进行游玩。
+
+<font style="font-weight:bolder; color: #44617b">关于古城市</font>
+
+古城市是一座位于中国中部偏西的大城市，地处关中平原，面积约一万平方千米，常住人口约一千万人，城镇化率超过70%。古城市南边依靠古南山脉，北边濒临黄河，市内河流密集。
+
+由于曾是数代王朝的都城，古城市有着丰厚的历史底蕴。除去遍布在城市的古建筑之外，古城市的地下不知埋藏着多少历史的遗物。
+
+<details class="spoiler-details"><summary><font style="color: #d7003a; font-weight: bolder;">剧本简介（剧透警告！）</font></summary>
+<font style="color: #0d0015;font-weight: bolder;">《校园黑色怪谈》</font><font style="color: black; font-weight: bolder;">——调查员将身陷一场由拥有着奈亚拉托提普的信徒和古城中学的校长双重身份的史建西策划的阴谋。在校园中，调查员将面对许多难题：失踪的学生、精神失常的教职工、隐秘的地下密室、宇宙深处的邪恶……</font>
+
+<font style="color: #8d6449; font-weight: bolder;">《深埋地底的呼唤》</font><font style="color: black;font-weight: bolder;">——一场地铁施工意外挖出了不该面世的地下陵墓，沉眠在这里的除了历经时间浪潮的文物以外，还有时刻想要冲破封印的罗伊格尔。在坍塌的地下陵墓里，萦绕在调查员身边的除了谜团之外，还有罗伊格尔带来的悲伤氛围。</font>
+
+<font style="color: #824880; font-weight: bolder;">《可曾遇见梦中仙境》</font><font style="color: black;font-weight: bolder;">——在这篇剧本中，调查员将体验到“有些不同”的游戏。因为一群猫咪不太成熟的求助手段，调查员意外进入了梦境中的世界。他们将在梦境的世界中亲身体验一场20余年前真实发生在古南山脉的令人匪夷所思的神秘事件。</font></details>
+
+# 更新历史
+
+ <font size=4 style="background-color: #ff6600;color: white">2022.08.10更新（当前版本）</font>
+
+- 重制版发布~
+
+#  下载地址
+
+- 蓝奏云：https://masternoah.lanzoui.com/i5qpjiv5j0d
+- 百度网盘：https://pan.baidu.com/s/1VmgjGL97Br8SplxqhUd9PQ （提取码：NOAH）
+- dicecho页面[老版本]：[古城诡秘 | 模组 | 骰声回响 (dicecho.com)](https://www.dicecho.com/module/6110a5753e4e900028417ad3)
+
+# 其它信息
+
+本剧本基于[CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)协议共享，请遵守协议条款。
+
+如有以下需求,请通过我的邮箱(noahtie@foxmail.com)或添加我的qq(571364304)联系我:
+
+- 需要展示材料可编辑版本的文件\剧本word版
+- 制作包括但不限于视频\小说等有可能产生利益的二次创作
+- 有关于剧本中的问题
+
+禁止在未经授权的情况下，将该剧本用于任何有可能产生收益或变相谋取经济效益的情景，包括但不限于：
+
+- 制作衍生产物并获取收益
+- 在商业活动情况下使用该剧本
+- 除个人使用之外印刷该剧本
+
+<style>
+.spoiler-details {
+background: linear-gradient(45deg,rgba(234,192,69,.3),rgba(234,192,69,.3) 25%,rgba(0,0,0,.3) 0,rgba(0,0,0,.3) 50%,rgba(234,192,69,.3) 0,rgba(234,192,69,.3) 75%,rgba(0,0,0,.3) 0,rgba(0,0,0,.3));
+background-size: 40px 40px;
+color: hsla(0,0%,100%,);
+}
+.spoiler-details {
+cursor: pointer;
+padding: 8px 16px;
+}
+</style>

@@ -1,4 +1,5 @@
 ---
+import Giscus from "@components/Giscus.astro";
 import path from "node:path";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
@@ -69,6 +70,15 @@ const jsonLd = {
                 </div>
             </div>
 
+            <!-- 新增阅读量统计 -->
+            <script is:inline async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="flex flex-row items-center">
+            <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
+                <Icon name="material-symbols:visibility-outline-rounded"></Icon>
+            </div>
+            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> Page Views
+            </div>
+
             <!-- title -->
             <div class="relative onload-animation">
                 <div
@@ -104,6 +114,13 @@ const jsonLd = {
 
             <Markdown class="mb-6 markdown-content onload-animation">
                 <Content />
+                <!-- 评论区域 -->
+                <section class="comments-section mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                    <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100">
+                    评论
+                    </h2>
+                    <Giscus />
+                </section>
             </Markdown>
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
@@ -132,5 +149,27 @@ const jsonLd = {
             </div>}
         </a>
     </div>
+    
+    <style is:global>
+        /* 评论区域样式 */
+        .comments-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Giscus 容器样式 */
+        .giscus {
+            margin-top: 1.5rem;
+            min-height: 300px;
+            border-radius: var(--radius-large);
+            overflow: hidden;
+        }
+
+        /* 暗色模式适配 */
+        :global(html.dark) .giscus-frame {
+            color-scheme: dark;
+        }
+    </style>
 
 </MainGridLayout>
