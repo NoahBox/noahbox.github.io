@@ -46,6 +46,7 @@ const jsonLd = {
 	// TODO include cover image here
 };
 ---
+<script is:inline async src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js"></script>
 <MainGridLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description} lang={entry.data.lang} setOGTypeArticle={true} headings={headings}>
     <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
@@ -68,15 +69,13 @@ const jsonLd = {
                         {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
                     </div>
                 </div>
-            </div>
-
-            <!-- 新增阅读量统计 -->
-            <script is:inline async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="flex flex-row items-center">
-            <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
-                <Icon name="material-symbols:visibility-outline-rounded"></Icon>
-            </div>
-            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> Page Views
+                <!-- 新增阅读量统计 -->
+                <div class="flex flex-row items-center">
+                    <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
+                        <Icon name="material-symbols:visibility-outline-rounded"></Icon>
+                    </div>
+                    <span id="busuanzi_container_page_pv"><span id="busuanzi_page_pv">Loading...</span> Page Views
+                </div>
             </div>
 
             <!-- title -->
