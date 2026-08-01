@@ -5,7 +5,7 @@ import { url } from "../utils/url-utils";
 
 const currentYear = new Date().getFullYear();
 ---
-
+<script is:inline async src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js"></script>
 <!--<div class="border-t border-[var(&#45;&#45;primary)] mx-16 border-dashed py-8 max-w-[var(&#45;&#45;page-width)] flex flex-col items-center justify-center px-6">-->
 <div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div>
 <!--<div class="transition bg-[oklch(92%_0.01_var(&#45;&#45;hue))] dark:bg-black rounded-2xl py-8 mt-4 mb-8 flex flex-col items-center justify-center px-6">-->
@@ -16,7 +16,7 @@ const currentYear = new Date().getFullYear();
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('sitemap-index.xml')}>Sitemap</a><br>
         Powered by
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build">Astro</a> &
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a>
-        <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> Total Visits</span>
+        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/saicaca/fuwari">Fuwari</a><br>
+        Total Site Visits: <span id="busuanzi_site_pv">Loading...</span>
     </div>
 </div>
