@@ -37,9 +37,13 @@ jobs:
 
       # noahbox.github.io 是用户/组织型 Pages 仓库，GitHub 只允许从 main 分支发布。
       # 因此把构建产物发布到 main 分支（发布分支），newblog 继续作为源码/默认分支。
+      # 注意：必须先把 dist 移到仓库目录之外再 git init，否则 git 会沿用父仓库的 .git，
+      # 导致把源码而非构建产物推到 main。
       - name: Publish built site to main (published branch)
         run: |
-          cd dist
+          rm -rf /tmp/site-out
+          mv dist /tmp/site-out
+          cd /tmp/site-out
           touch .nojekyll
           git init -q
           git checkout -B main

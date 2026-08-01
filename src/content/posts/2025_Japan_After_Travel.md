@@ -2,9 +2,9 @@
 title: 【日常】2025 日本旅行 Log
 published: 2025-02-16
 description: 出发前参考了 Rx 老大哥写的游记 (全程生草, 乐死我了). 遂打算回来之后写一篇差不多的, 记录一下旅行期间比较生草的事情, 顺便夹带一点正经的攻略.
-image: ""
+image: "https://s2.loli.net/2025/02/16/owlz9bKAYEFkCSt.jpg"
 tags: [水水水]
-category: 旅游
+category: 日常
 draft: false
 ---
 

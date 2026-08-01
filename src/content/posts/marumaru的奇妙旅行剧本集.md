@@ -1,9 +1,9 @@
 ---
-title: "【Pinned】【龙蛋物语剧本】马鹿的奇妙旅行/◯◯大陆的奇妙旅行 剧本集！"
+title: "【龙蛋物语剧本】马鹿的奇妙旅行/◯◯大陆的奇妙旅行 剧本集！"
 published: 2023-10-11
 updated: 2025-11-12
 description: "马鹿大陆是一片广阔的大陆，人类、精灵、犬人和喵布林在这片大陆上和睦地生活在一起。  这里的绝大多数居民向往着和平，安心地居住着、旅行着。  然而近期不知道发生了什么变故，一些犬人和喵布林突然开始袭击人类、掠夺人类的村庄或在城市里喧闹。  统…"
-image: "https://s2.loli.net/2022/09/07/ILznUPQepsmV1BX.png"
+image: "https://files.seeusercontent.com/2026/08/01/2wVh/Maru_Characters_Playing_TTRPG.png"
 tags: [○○的奇妙旅行, 剧本, 原创]
 category: "龙蛋物语"
 draft: false
