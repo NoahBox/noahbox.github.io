@@ -1,14 +1,14 @@
 ---
 title: "【COC相关】COC常用资源[规则书、调查员手册、官方扩展……]"
 published: 2021-06-23
-description: "插画作者：推特@maxgonta  所有资源均为COC7th规则或已经由老版本规则转化为COC7th。如有例外，请参见注释。  部分资源转载自纯美苹果园。"
+description: "所有资源均为COC7th规则或已经由老版本规则转化为COC7th。如有例外，请参见注释。部分资源转载自纯美苹果园。"
 image: "https://i.loli.net/2021/06/24/4lqnSRFPYiA8QaT.jpg"
 tags: [COC资源, 扩展资料]
 category: "TRPG规则"
 draft: false
 ---
 
-> 插画作者：推特[@maxgonta](https://twitter.com/maxgonta)
+> 封面插画作者：推特[@maxgonta](https://twitter.com/maxgonta)
 >
 > 所有资源均为COC7th规则或已经由老版本规则转化为COC7th。如有例外，请参见注释。
 > 
