@@ -1,39 +1,48 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 每次推送到 `main` 分支时触发这个“工作流程”
-  # 如果你使用了别的分支名，请按需将 `main` 替换成你的分支名
+  # 每次推送到 `newblog` 分支时触发构建并发布
   push:
     branches: [ newblog ]
-  # 允许你在 GitHub 上的 Actions 标签中手动触发此“工作流程”
+  # 允许在 GitHub Actions 页面手动触发
   workflow_dispatch:
 
-# 允许 job 克隆 repo 并创建一个 page deployment
+# 允许 push 到 main（发布分支）
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v4
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
-        # with:
-          # path: . # 存储库中 Astro 项目的根位置。（可选）
-          # node-version: 20 # 用于构建站点的特定 Node.js 版本，默认为 20。（可选）
-          # package-manager: pnpm@latest # 应使用哪个 Node.js 包管理器来安装依赖项和构建站点。会根据存储库中的 lockfile 自动检测。（可选）
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+        with:
+          run_install: false # Disable auto-install
+
+      - name: Setup Node.js
+        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: pnpm astro build
+
+      # noahbox.github.io 是用户/组织型 Pages 仓库，GitHub 只允许从 main 分支发布。
+      # 因此把构建产物发布到 main 分支（发布分支），newblog 继续作为源码/默认分支。
+      - name: Publish built site to main (published branch)
+        run: |
+          cd dist
+          touch .nojekyll
+          git init -q
+          git checkout -B main
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" commit -q -m "deploy: publish site to main"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/NoahBox/noahbox.github.io.git" main
