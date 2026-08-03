@@ -1,0 +1,46 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import FriendLinkCard from "@components/FriendLinkCard.astro";
+import { friendsConfig } from "../config";
+import type { FriendLink } from "@/types/config";
+
+// Group by category (default group "友链"), and pre-compute a global index
+// for the staggered onload animation.
+const map = new Map<string, FriendLink[]>();
+for (const f of friendsConfig.friends) {
+	const key = f.category?.trim() || "友链";
+	if (!map.has(key)) map.set(key, []);
+	map.get(key)!.push(f);
+}
+
+let counter = 0;
+const groups = [...map.entries()].map(([name, friends]) => ({
+	name,
+	friends: friends.map((friend) => ({ friend, index: counter++ })),
+}));
+---
+
+<MainGridLayout title="友链">
+	<div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+		<div class="card-base z-10 px-9 py-6 relative w-full">
+			<div class="font-bold text-xl mb-1">友链</div>
+			<p class="text-50 text-sm mb-5">这里收录了一些我喜欢的站点。</p>
+
+			{groups.map((group) => (
+				<section class="mb-6">
+					<div class="font-bold transition text-lg text-neutral-900 dark:text-neutral-100
+					            relative ml-8 mt-4 mb-2
+					            before:w-1 before:h-4 before:rounded-md before:bg-[var(--primary)]
+					            before:absolute before:left-[-16px] before:top-[5.5px]">
+						{group.name}
+					</div>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+						{group.friends.map((item) => (
+							<FriendLinkCard friend={item.friend} index={item.index} />
+						))}
+					</div>
+				</section>
+			))}
+		</div>
+	</div>
+</MainGridLayout>

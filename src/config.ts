@@ -1,5 +1,6 @@
 import type {
 	ExpressiveCodeConfig,
+	FriendsConfig,
 	LicenseConfig,
 	NavBarConfig,
 	ProfileConfig,
@@ -45,15 +46,9 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
-			name: "GitHub",
-			url: "https://github.com/noahbox", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
+			name: "友链&外部链接",
+			url: "/links/", // Internal links should not include the base path, as it is automatically added
 		},
-		{
-			name: "Dicecho",
-			url: "https://next.dicecho.com/en/account/6048c166aed4d4001dfe89e6",
-			external: true
-		}
 	],
 };
 
@@ -90,4 +85,55 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
 	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
+};
+
+export const friendsConfig: FriendsConfig = {
+	friends: [
+		{
+			name: "我的GitHub",
+			url: "https://github.com/noahbox",
+			avatar: "https://avatars.githubusercontent.com/u/86278943",
+			description: "NoahTie/MasterNoah的GitHub",
+			category: "个人主页",
+		},
+		{
+			name: "我的Dicecho主页",
+			url: "https://next.dicecho.com/en/account/6048c166aed4d4001dfe89e6",
+			avatar: "https://file.dicecho.com/mod/6048c166aed4d4001dfe89e6/MasterNoah.png",
+			description: "MasterNoah的Dicecho主页",
+			category: "个人主页",
+		},
+		{
+			name: "りゅうたま　公式ブログ",
+			url: "https://ryu0tama.blog.shinobi.jp/",
+			description: "龙蛋物语日文版官方博客，由规则书作者本人维护。",
+			category: "外部链接",
+		},
+		{
+			name: "乐博睿/Labyrinth",
+			url: "https://labyrinth-rpg.com/%E9%BE%99%E8%9B%8B%E7%89%A9%E8%AF%AD",
+			description: "龙蛋物语简体中文版官网",
+			category: "外部链接",
+		},
+		{
+			name: "KOTODAMA HEAVY INDUSTRY - Ryuutama",
+			url: "https://kotohi.com/ryuutama/",
+			avatar: "https://kotohi.com/wp-content/uploads/2013/10/Kotodama-Logo_full.jpg",
+			description: "龙蛋物语英文版官网",
+			category: "外部链接",
+		},
+		{
+			name: "魔都TRPG",
+			url: "https://www.cnmods.net/web/",
+			avatar: "https://wiki.cnmods.org/_media/logo.png",
+			description: "魔都cnmods是国内中文TPRG模组共享交流网站，跑团玩家集散地，现今共收录众多原创或翻译模组，主要规则类别为COC7th，即克苏鲁的呼唤第7版规则，同时也收录了例如DND、PF等其他规则的模组。",
+			category: "外部链接",
+		},
+		{
+			name: "纯美苹果园",
+			url: "https://www.goddessfantasy.net",
+			description: "",
+			category: "外部链接",
+		}
+	],
 };

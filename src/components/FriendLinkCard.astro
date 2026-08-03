@@ -1,0 +1,33 @@
+---
+import type { FriendLink } from "@/types/config";
+
+interface Props {
+	friend: FriendLink;
+	index?: number;
+}
+const { friend, index = 0 } = Astro.props;
+---
+
+<a href={friend.url} target="_blank" rel="noopener noreferrer"
+   class="card-base group flex items-center gap-4 p-4 transition
+          hover:bg-[var(--btn-card-bg-hover)] active:scale-[0.98] onload-animation"
+   style={`animation-delay: calc(var(--content-delay) + ${index * 50}ms);`}>
+	<div class="shrink-0 h-14 w-14 overflow-hidden rounded-xl bg-black/5 dark:bg-white/10">
+		{friend.avatar ? (
+			<img src={friend.avatar} alt={friend.name} loading="lazy" referrerpolicy="no-referrer"
+			     class="h-full w-full object-cover" />
+		) : (
+			<div class="flex h-full w-full items-center justify-center text-2xl text-[var(--primary)]">
+				{friend.name.slice(0, 1)}
+			</div>
+		)}
+	</div>
+	<div class="min-w-0">
+		<div class="truncate font-bold text-black/80 dark:text-white/80 group-hover:text-[var(--primary)]">
+			{friend.name}
+		</div>
+		{friend.description && (
+			<div class="mt-0.5 line-clamp-2 text-sm text-50">{friend.description}</div>
+		)}
+	</div>
+</a>

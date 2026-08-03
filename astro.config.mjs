@@ -49,7 +49,7 @@ export default defineConfig({
 		}),
 		icon({
 			include: {
-			"material-symbols": ["*"],
+				"material-symbols": ["*"],
 				"fa6-brands": ["*"],
 				"fa6-regular": ["*"],
 				"fa6-solid": ["*"],

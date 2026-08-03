@@ -60,6 +60,18 @@ export type NavBarConfig = {
 	links: (NavBarLink | LinkPreset)[];
 };
 
+export type FriendLink = {
+	name: string;
+	url: string;
+	avatar?: string;
+	description?: string;
+	category?: string;
+};
+
+export type FriendsConfig = {
+	friends: FriendLink[];
+};
+
 export type ProfileConfig = {
 	avatar?: string;
 	name: string;
