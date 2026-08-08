@@ -46,8 +46,15 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
-			name: "友链&外部链接",
+			name: "友链&外链",
 			url: "/links/", // Internal links should not include the base path, as it is automatically added
+		},
+		{
+			name: "特设页面",
+			url: "",
+			children: [
+				{ name: "古城幻谭", url: "/special/古城幻谭/" },
+			],
 		},
 	],
 };

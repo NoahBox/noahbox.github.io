@@ -42,9 +42,6 @@ if (!banner || typeof banner !== "string" || banner.trim() === "") {
 	banner = siteConfig.banner.src;
 }
 
-// TODO don't use post cover as banner for now
-banner = siteConfig.banner.src;
-
 const enableBanner = siteConfig.banner.enable;
 
 let pageTitle: string;
@@ -405,6 +402,16 @@ const setup = () => {
 		}
 	})
 	window.swup.hooks.on('content:replace', initCustomScrollbar)
+	window.swup.hooks.on('content:replace', () => {
+		// Update banner image when navigating between pages via Swup
+		// Banner is outside the Swup container, so we manually update it
+		const container = document.getElementById('swup-container');
+		const bannerSrc = container?.dataset.bannerSrc;
+		const bannerImg = document.querySelector('#banner img') as HTMLImageElement | null;
+		if (bannerImg && bannerSrc) {
+			bannerImg.src = bannerSrc;
+		}
+	});
 	window.swup.hooks.on('visit:start', (visit: {to: {url: string}}) => {
 		// change banner height immediately when a link is clicked
 		const bodyElement = document.querySelector('body')

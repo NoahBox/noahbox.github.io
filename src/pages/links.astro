@@ -8,7 +8,7 @@ import type { FriendLink } from "@/types/config";
 // for the staggered onload animation.
 const map = new Map<string, FriendLink[]>();
 for (const f of friendsConfig.friends) {
-	const key = f.category?.trim() || "友链";
+	const key = f.category?.trim() || "友链&外链";
 	if (!map.has(key)) map.set(key, []);
 	map.get(key)!.push(f);
 }
@@ -20,10 +20,10 @@ const groups = [...map.entries()].map(([name, friends]) => ({
 }));
 ---
 
-<MainGridLayout title="友链">
+<MainGridLayout title="友链&外链">
 	<div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
 		<div class="card-base z-10 px-9 py-6 relative w-full">
-			<div class="font-bold text-xl mb-1">友链</div>
+			<div class="font-bold text-xl mb-1 text-neutral-900 dark:text-neutral-100">友链&外链</div>
 			<p class="text-50 text-sm mb-5">这里收录了一些我喜欢的站点。</p>
 
 			{groups.map((group) => (

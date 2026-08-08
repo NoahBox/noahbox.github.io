@@ -1,0 +1,88 @@
+---
+// Special pages route — renders content from the "pages" collection
+// Uses the same MainGridLayout as regular blog posts
+// Only adds: custom banner and background image support
+import path from "node:path";
+import { getCollection } from "astro:content";
+import MainGridLayout from "../../layouts/MainGridLayout.astro";
+import Markdown from "../../components/misc/Markdown.astro";
+import { getDir, url as urlUtil } from "../../utils/url-utils";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+
+const { background, banner } = entry.data;
+
+const basePath = path.join("content/pages/", getDir(entry.id));
+
+async function resolveImageUrl(src: string): Promise<string | null> {
+  if (!src) return null;
+  if (src.startsWith("/") || src.startsWith("http") || src.startsWith("https") || src.startsWith("data:")) {
+    return src.startsWith("/") ? urlUtil(src) : src;
+  }
+  const files = import.meta.glob<ImageMetadata>("../../**", { import: "default" });
+  const candidates = [
+    path.normalize(path.join("../../", basePath, src)).replace(/\\/g, "/"),
+    path.normalize(path.join("../../", src)).replace(/\\/g, "/"),
+  ];
+  for (const key of candidates) {
+    const resolver = files[key];
+    if (resolver) {
+      const img = await resolver();
+      return img.src;
+    }
+  }
+  console.warn(`[SpecialPage] Image not found: ${src}`);
+  return null;
+}
+
+const resolvedBanner = banner ? await resolveImageUrl(banner) : null;
+const resolvedBackground = background ? await resolveImageUrl(background) : null;
+
+// If there's a custom banner, use it; otherwise MainGridLayout uses site banner
+const bannerProp = resolvedBanner || entry.data.image || undefined;
+---
+
+<MainGridLayout
+  banner={bannerProp}
+  title={entry.data.title}
+  description={entry.data.description}
+  setOGTypeArticle={true}
+  headings={headings}
+>
+  <!-- Background image (outside swup-container, but Swup handles it through the page) -->
+  {resolvedBackground && (
+    <div
+      style={`position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; background-image: url(${resolvedBackground}); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.08;`}
+    ></div>
+  )}
+
+  <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
+    <div class="card-base z-10 px-6 md:px-9 pt-8 pb-4 relative w-full">
+      <!-- Title -->
+      <div class="relative onload-animation">
+        <div
+          class="transition w-full block font-bold mb-3
+          text-3xl md:text-[2.25rem]/[2.75rem]
+          text-black/90 dark:text-white/90
+          md:before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
+          before:absolute before:top-[0.75rem] before:left-[-1.125rem]
+        ">
+          {entry.data.title}
+        </div>
+      </div>
+
+      <Markdown class="mt-2 markdown-content onload-animation">
+        <Content />
+      </Markdown>
+    </div>
+  </div>
+</MainGridLayout>
