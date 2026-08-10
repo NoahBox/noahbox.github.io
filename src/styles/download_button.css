@@ -1,0 +1,44 @@
+/* 下载按钮：主题色渐变 + 下载图标 + 悬浮微动效 */
+.download-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: fit-content;
+    margin: 0.5rem auto 0.35rem;
+    padding: 0.7em 1.5em;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: linear-gradient(135deg,
+        oklch(0.72 0.14 var(--hue)),
+        oklch(0.60 0.17 var(--hue)));
+    border: 1px solid oklch(0.80 0.12 var(--hue) / 0.55);
+    border-radius: var(--radius-large);
+    box-shadow: 0 4px 14px oklch(0.70 0.14 var(--hue) / 0.35);
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition: transform 0.18s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.download-button::before {
+    content: "";
+    width: 1.15em;
+    height: 1.15em;
+    flex: none;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z'/></svg>") center / contain no-repeat;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z'/></svg>") center / contain no-repeat;
+}
+
+.download-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 9px 24px oklch(0.70 0.14 var(--hue) / 0.5);
+}
+
+.download-button:active {
+    transform: translateY(0) scale(0.97);
+    filter: brightness(0.97);
+}

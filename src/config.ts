@@ -54,6 +54,7 @@ export const navBarConfig: NavBarConfig = {
 			url: "",
 			children: [
 				{ name: "古城幻谭", url: "/special/古城幻谭/" },
+				{ name: "马鹿的奇妙旅行", url: "/special/马鹿的奇妙旅行/" },
 			],
 		},
 	],

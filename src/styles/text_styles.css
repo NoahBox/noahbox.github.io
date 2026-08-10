@@ -1,0 +1,10 @@
+.prologue {
+    text-align: center;
+    font-size: 20px !important;
+    font-family: "华文行楷", "STXingkai", "华文楷体", "STKaiti", "楷体", "KaiTi", "Xingkai SC", "行楷", cursive !important;
+}
+
+.inline-prologue {
+    text-align: center;
+    font-family: "华文行楷", "STXingkai", "华文楷体", "STKaiti", "楷体", "KaiTi", "Xingkai SC", "行楷", cursive !important;
+}
