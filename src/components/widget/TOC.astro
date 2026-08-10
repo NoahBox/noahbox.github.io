@@ -6,9 +6,10 @@ import { url } from "../../utils/url-utils";
 interface Props {
 	class?: string;
 	headings: MarkdownHeading[];
+	showTOC?: boolean;
 }
 
-let { headings = [] } = Astro.props;
+let { headings = [], showTOC = false } = Astro.props;
 
 let minDepth = 10;
 for (const heading of headings) {
@@ -17,6 +18,7 @@ for (const heading of headings) {
 
 const className = Astro.props.class;
 const isPostsRoute = Astro.url.pathname.startsWith(url("/posts/"));
+const shouldShowTOC = isPostsRoute || showTOC;
 
 const removeTailingHash = (text: string) => {
 	let lastIndexOfHash = text.lastIndexOf("#");
@@ -31,7 +33,7 @@ let heading1Count = 1;
 
 const maxLevel = siteConfig.toc.depth;
 ---
-{isPostsRoute &&
+{shouldShowTOC &&
 <table-of-contents class:list={[className, "group"]}>
     {headings.filter((heading) => heading.depth < minDepth + maxLevel).map((heading) =>
             <a href={`#${heading.slug}`} class="px-2 flex gap-2 relative transition w-full min-h-9 rounded-xl

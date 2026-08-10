@@ -30,6 +30,7 @@ const pagesCollection = defineCollection({
 		banner: z.string().optional().default(""),
 		background: z.string().optional().default(""),
 		sortOrder: z.number().optional().default(0),
+		pageNav: z.boolean().optional().default(false),
 	}),
 });
 export const collections = {
