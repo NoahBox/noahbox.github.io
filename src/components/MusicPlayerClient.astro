@@ -171,6 +171,22 @@
 		let seeking = false;
 		let activeLine = -1;
 
+		// Center the active lyric line *inside* the lyrics box only.
+		// We avoid scrollIntoView() because it would also scroll the whole
+		// page to the player; instead we scroll just the .mp-lyrics element.
+		function centerActiveLine() {
+			const line = lineEls[activeLine];
+			if (!line) return;
+			const boxRect = lyricsBox.getBoundingClientRect();
+			const lineRect = line.getBoundingClientRect();
+			const delta =
+				lineRect.top + lineRect.height / 2 - (boxRect.top + boxRect.height / 2);
+			lyricsBox.scrollTo({
+				top: lyricsBox.scrollTop + delta,
+				behavior: "smooth",
+			});
+		}
+
 		function highlightLine(time: number) {
 			if (!hasTiming) return;
 			let idx = -1;
@@ -184,7 +200,7 @@
 			activeLine = idx;
 			if (idx >= 0 && lineEls[idx]) {
 				lineEls[idx].classList.add("active");
-				lineEls[idx].scrollIntoView({ block: "center", behavior: "smooth" });
+				centerActiveLine();
 			}
 		}
 

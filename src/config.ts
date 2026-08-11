@@ -112,14 +112,23 @@ export const friendsConfig: FriendsConfig = {
 			category: "个人主页",
 		},
 		{
+			name: "煎蛋躺在平底锅的Dicecho主页",
+			url: "https://next.dicecho.com/zh/account/68b5750db6d8e90f7e45f2cb",
+			avatar: "https://file.dicecho.com/mod/68b5750db6d8e90f7e45f2cb/未命名作品 1的副本.png",
+			description: "龙蛋物语&三角机构&最终物语剧本作者。伟大，无需多言。",
+			category: "友链",
+		},
+		{
 			name: "りゅうたま　公式ブログ",
 			url: "https://ryu0tama.blog.shinobi.jp/",
+			avatar: "https://www.monodraco.com/assets/img/member/img_member08.png",
 			description: "龙蛋物语日文版官方博客，由规则书作者本人维护。",
 			category: "外部链接",
 		},
 		{
 			name: "乐博睿/Labyrinth",
 			url: "https://labyrinth-rpg.com/%E9%BE%99%E8%9B%8B%E7%89%A9%E8%AF%AD",
+			avatar: "https://img1.wsimg.com/isteam/ip/4d66e3af-0d8e-4ef0-8c20-8f3cfe7215d8/%E4%B8%AD%E6%96%87logo.jpg",
 			description: "龙蛋物语简体中文版官网",
 			category: "外部链接",
 		},
@@ -142,6 +151,6 @@ export const friendsConfig: FriendsConfig = {
 			url: "https://www.goddessfantasy.net",
 			description: "",
 			category: "外部链接",
-		}
+		},
 	],
 };
