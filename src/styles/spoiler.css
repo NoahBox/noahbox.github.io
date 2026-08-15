@@ -1,0 +1,10 @@
+.spoiler-details {
+    background: linear-gradient(45deg, rgba(234, 192, 69, .3), rgba(234, 192, 69, .3) 25%, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, .3) 50%, rgba(234, 192, 69, .3) 0, rgba(234, 192, 69, .3) 75%, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, .3));
+    background-size: 40px 40px;
+    color: hsla(0, 0%, 100%, );
+}
+
+.spoiler-details {
+    cursor: pointer;
+    padding: 8px 16px;
+}
