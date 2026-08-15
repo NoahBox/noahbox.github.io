@@ -27,9 +27,16 @@ draft: false
 
 ## 下载地址
 
-* 蓝奏云：[点击下载](https://masternoah.lanzouq.com/iF6xi42l8qzc)
-* 百度云：[点击下载](https://pan.baidu.com/s/1OZS8snn1Ou_J65vCT-Rk4g?pwd=NOAH)
-* Dicecho：[点击查看](https://next.dicecho.com/zh/scenario/6a808f845ab4f8ea6420a934)
+* 剧本
+    * 蓝奏云：[点击下载](https://masternoah.lanzouq.com/iF6xi42l8qzc)
+    * 百度云：[点击下载](https://pan.baidu.com/s/1Ypw6IaxIgrWjCkKroi7kzw?pwd=NOAH)
+    * Dicecho：[点击查看](https://next.dicecho.com/zh/scenario/6a808f845ab4f8ea6420a934)
+* 展示材料源文件
+    * 蓝奏云：[点击下载](https://masternoah.lanzouq.com/ijKOz42laptc)
+    * 百度云：[点击下载](https://pan.baidu.com/s/1YldMG89X-wrh21cXiMaMTA?pwd=NOAH)
+* 角色立绘
+    * 蓝奏云：[点击下载](https://masternoah.lanzouq.com/iDZIJ42laq8h)
+    * 百度云：[点击下载](https://pan.baidu.com/s/1jDPPpFluZcFmLCKd5FJBtw?pwd=NOAH)
 
 ## 展示材料在线网页
 
