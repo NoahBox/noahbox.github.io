@@ -57,6 +57,13 @@ export const navBarConfig: NavBarConfig = {
 				{ name: "马鹿的奇妙旅行", url: "/special/马鹿的奇妙旅行/" },
 			],
 		},
+		{
+			name: "在线工具",
+			url: "",
+			children: [
+				{ name: "COC车卡工具", url: "/tools/coc-investigator-wizard.html" },
+			],
+		},
 	],
 };
 
