@@ -62,6 +62,7 @@ export const navBarConfig: NavBarConfig = {
 			url: "",
 			children: [
 				{ name: "COC车卡工具", url: "/tools/coc-investigator-wizard.html" },
+				{ name: "TRPG控音台", url: "/tools/trpg-sound-console.html"}
 			],
 		},
 	],
