@@ -1,5 +1,5 @@
 ---
-title: "【COC剧本】【预告】偶像、泡沫，终末的 UnCall「アイドル、泡沫、終末のアンコール(UnCall)」"
+title: "【COC剧本】【预告】偶像、泡沫，终末的 UnCall「アイドル、バブル、終末のアンコール(UnCall)」"
 published: 2026-08-16
 description: ""
 image: "https://files.seeusercontent.com/2026/08/16/oA7p/Live2.png"
