@@ -80,7 +80,8 @@ npm run build
     - 适用于印刷的 PDF 及图片
     - 兼容“TRPG 赛高 COC 调查员车卡工具”的 Base64 串
     - 骰娘属性设置字符串
-    - FVTT COC7th 系统可用的 Json 格式
+    - FVTT COC7th 系统的 Json 格式
+    - Dhole's House 兼容的 Json 格式
     - 角色卡分享链接
 - 调查员角色卡导入，支持：
     - 本工具支持的 Json 格式
@@ -108,12 +109,19 @@ npm run build
 - [x] 使用 LocalStorage 对角色卡进行持久化保存 v1.0.3
 - [x] 调查员背景的随机生成表 v1.0.5
 - [x] 《克苏鲁时空穿梭（Cthulhu Through the Ages）》扩展中的职业和时代特性 v1.0.5
-- [x] 导出到 FVTT COC7th 系统可用的格式 v1.0.6
+- [x] 导出到 FVTT COC7th 系统可用的格式 v1.0.6 & v1.0.7
 - [x] 本地化: 英语、日语 v1.0.6
 - [ ] 调整角色卡更新模式的功能
 
 
 ## 更新历史
+
+### v1.0.7 26-08-23
+
+- 增加功能
+    - 支持导出到 Dhole's House 兼容的角色卡 Json
+- 体验优化
+    - 调整部分文字表述和 i18n
 
 ### v1.0.6b 26-08-21
 
