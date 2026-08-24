@@ -62,7 +62,8 @@ export const navBarConfig: NavBarConfig = {
 			url: "",
 			children: [
 				{ name: "COC车卡工具", url: "/tools/coc-investigator-wizard.html" },
-				{ name: "TRPG控音台", url: "/tools/trpg-sound-console.html"}
+				{ name: "TRPG控音台", url: "/tools/trpg-sound-console.html"},
+				{ name: "七伏市集章中文版", url: "/tools/nanafuseshi_stamp.html"}
 			],
 		},
 	],
