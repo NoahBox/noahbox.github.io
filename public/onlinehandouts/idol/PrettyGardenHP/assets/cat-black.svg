@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 耳朵 -->
+  <path d="M13 21 L9 5 L27 17 Z" fill="#1f3134"/>
+  <path d="M51 21 L55 5 L37 17 Z" fill="#1f3134"/>
+  <!-- 内耳 -->
+  <path d="M16 19 L13 11 L23 17 Z" fill="#f6b9c2"/>
+  <path d="M48 19 L51 11 L41 17 Z" fill="#f6b9c2"/>
+  <!-- 脸 -->
+  <circle cx="32" cy="37" r="21" fill="#1f3134"/>
+  <!-- 眼睛 -->
+  <circle cx="24" cy="35" r="3.4" fill="#ffffff"/>
+  <circle cx="40" cy="35" r="3.4" fill="#ffffff"/>
+  <circle cx="24" cy="35" r="1.5" fill="#1f3134"/>
+  <circle cx="40" cy="35" r="1.5" fill="#1f3134"/>
+  <!-- 鼻子 -->
+  <path d="M32 41 l-3.4 3 h6.8 z" fill="#f6b9c2"/>
+  <!-- 嘴 -->
+  <path d="M32 44 v3 M32 47 q-4 3 -7 0 M32 47 q4 3 7 0" stroke="#0f1b1c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <!-- 胡须 -->
+  <path d="M13 36 h10 M13 41 h10 M51 36 h-10 M51 41 h-10" stroke="#0f1b1c" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+</svg>

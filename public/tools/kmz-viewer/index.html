@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>KMZ Viewer</title>
+    <meta
+      name="description"
+      content="Private, local-first KML and KMZ viewer for exploring maps in the browser."
+    />
+    <script type="module" crossorigin src="/assets/index-Dx1jdw5K.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DIhIpEXS.css">
+  </head>
+  <body>
+    <div id="app">
+      <aside id="sidebar" aria-label="Places sidebar">
+        <header id="sidebar-header">
+          <div class="brand-mark" aria-hidden="true">K</div>
+          <div class="brand-copy"><h1>KMZ Viewer</h1><span>Local geospatial viewer</span></div>
+          <button id="sidebar-close" class="icon-button sidebar-close" type="button" aria-label="Close sidebar">×</button>
+        </header>
+        <div id="sidebar-empty" class="sidebar-empty">
+          <div class="empty-illustration" aria-hidden="true">⌖</div>
+          <h2>Bring your map to life</h2>
+          <p>KML and KMZ are map files — the kind Google Earth makes — that hold pins, routes, and shapes.</p>
+          <p>Open one to explore its places, paths, polygons, and overlays. No file yet? Open one, or pick a bundled sample.</p>
+          <p id="empty-error" class="empty-error" hidden role="alert"></p>
+          <button id="empty-open" class="button button-primary" type="button">Open file</button>
+          <button id="empty-presets" class="button button-ghost" type="button">Browse samples</button>
+          <p class="privacy-note">Your files stay on this device.</p>
+        </div>
+        <div id="document-panel" hidden>
+          <section id="documents-panel"></section>
+          <div id="tree-search"></div>
+          <div id="layer-tree"></div>
+          <section id="feature-inspector" hidden aria-label="Feature inspector"></section>
+          <div id="warnings"></div>
+        </div>
+        <div id="sidebar-resizer" role="separator" aria-orientation="vertical" aria-label="Resize sidebar" tabindex="0"></div>
+      </aside>
+      <main id="map-shell">
+        <header id="map-toolbar">
+          <button id="sidebar-toggle" class="icon-button" type="button" aria-label="Toggle sidebar" aria-expanded="true">☰</button>
+          <button id="toolbar-open" class="button button-primary button-compact" type="button">Open</button>
+          <button id="fit-all" class="button button-secondary button-compact toolbar-action" type="button" aria-label="Fit all visible documents" title="Fit all visible documents">Fit</button>
+          <button id="open-table" class="button button-secondary button-compact toolbar-action" type="button" aria-label="Toggle attribute table" title="Toggle attribute table" aria-pressed="false">Table</button>
+          <button id="measure-button" class="button button-secondary button-compact toolbar-action" type="button" aria-label="Toggle measurement tool" title="Measure distance or area" aria-pressed="false">Measure</button>
+          <button id="issues-button" class="button button-secondary button-compact toolbar-action issues-button" type="button" disabled aria-label="Open compatibility and feedback" title="Open a document to review compatibility">Feedback <span id="issues-count" class="toolbar-count" hidden>0</span></button>
+          <div class="toolbar-spacer"></div>
+          <label class="toolbar-field"><span>Base map</span><div id="baselayer-switcher"></div></label>
+          <details class="toolbar-menu">
+            <summary class="button button-secondary button-compact">Preferences</summary>
+            <div class="toolbar-popover">
+              <div id="view-options"></div>
+              <label class="settings-field"><span>Theme</span><select id="theme-select" aria-label="Theme"><option value="light">Light</option><option value="dark">Dark</option><option value="system">System</option></select></label>
+              <button id="about-button" class="preference-link" type="button">About &amp; compatibility <span aria-hidden="true">›</span></button>
+            </div>
+          </details>
+        </header>
+        <div id="basemap-banner" class="basemap-banner" hidden role="status">
+          <div><strong>Basemap unavailable</strong><span id="basemap-message">The selected map could not be loaded.</span></div>
+          <button id="basemap-retry" class="button button-ghost button-compact" type="button">Retry</button>
+          <button id="basemap-blank" class="button button-secondary button-compact" type="button">Use Blank</button>
+        </div>
+        <div id="map" aria-label="Map">
+        <section id="measurement-panel" hidden aria-label="Measurement tool"></section>
+        <div id="map-legends" aria-live="polite"></div>
+        <div id="map-overlay" hidden>
+          <div class="loading-card" role="status"><div class="spinner"></div><span id="loading-message">Loading map data…</span></div>
+        </div>
+        </div>
+        <section id="attribute-table" hidden aria-label="Attribute table"></section>
+      </main>
+    </div>
+    <div id="open-dialog-root"></div>
+    <div id="preset-picker-root"></div>
+    <div id="compatibility-root"></div>
+    <div id="about-root"></div>
+    <div id="toasts" aria-live="polite"></div>
+    <div id="sr-live" class="visually-hidden" aria-live="polite"></div>
+  </body>
+</html>
