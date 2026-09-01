@@ -1,0 +1,2 @@
+(function(){"use strict";const o=self;let t=[];const n=new Intl.Collator(void 0,{numeric:!0});o.onmessage=c=>{const e=c.data;if(e.type==="init"){t=e.rows;return}const a=e.ascending?1:-1,r=e.query?t.filter(s=>s.search.includes(e.query)):[...t];r.sort((s,i)=>n.compare(s.values[e.sortKey]??"",i.values[e.sortKey]??"")*a),o.postMessage({type:"result",requestId:e.requestId,ids:r.map(s=>s.id)})}})();
+//# sourceMappingURL=attribute.worker-BVqygHJP.js.map
