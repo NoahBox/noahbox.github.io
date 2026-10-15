@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Trinity River Field Survey</name>
+    <description>A bundled demonstration of KMZ Viewer features.</description>
+    <Style id="site"><IconStyle><color>ff2f76b7</color><scale>1.1</scale></IconStyle></Style>
+    <Style id="route"><LineStyle><color>ff3a7d44</color><width>4</width></LineStyle></Style>
+    <Style id="zone"><LineStyle><color>ff2f5d83</color><width>2</width></LineStyle><PolyStyle><color>553d8bd1</color></PolyStyle></Style>
+    <Folder>
+      <name>Inspection sites</name>
+      <Placemark>
+        <name>North Pump Station</name><styleUrl>#site</styleUrl>
+        <description><![CDATA[<strong>Priority inspection site</strong><br>Last checked: June 2026]]></description>
+        <ExtendedData><Data name="Status"><value>Needs review</value></Data><Data name="Team"><value>North crew</value></Data></ExtendedData>
+        <Point><coordinates>-96.8112,32.8037,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Wetland Observation</name><styleUrl>#site</styleUrl>
+        <ExtendedData><Data name="Status"><value>Complete</value></Data></ExtendedData>
+        <Point><coordinates>-96.7755,32.7771,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Survey geometry</name>
+      <Placemark><name>Service route</name><styleUrl>#route</styleUrl><LineString><coordinates>-96.828,32.787 -96.805,32.795 -96.782,32.781 -96.761,32.792</coordinates></LineString></Placemark>
+      <Placemark><name>Restoration zone</name><styleUrl>#zone</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>-96.800,32.768 -96.774,32.768 -96.771,32.784 -96.798,32.785 -96.800,32.768</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+    </Folder>
+  </Document>
+</kml>

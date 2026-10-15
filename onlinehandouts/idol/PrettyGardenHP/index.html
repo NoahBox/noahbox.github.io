@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pretty Garden | 官方主页</title>
+<style>
+  :root{
+    --cream:#fffaf6;
+    --pink:#ec6d71;       /* 朱音 真朱 */
+    --green:#98d98e;      /* 若叶 若绿 */
+    --blue:#bce2e8;       /* 空 水色 */
+    --dark:#1f3134;       /* 黑猫 百入茶 */
+    --ink:#4a3f3a;
+    --soft:#fff;
+    --line:#f0dde0;
+    font-family:"Hiragino Maru Gothic ProN","Yuanti SC","圆体-简","Yu Gothic","Microsoft YaHei","PingFang SC",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    overflow-x:hidden;
+    position:relative;
+  }
+  /* 柔和的花园光斑背景 */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(236,109,113,.10), transparent 38%),
+      radial-gradient(circle at 88% 12%, rgba(152,217,142,.12), transparent 36%),
+      radial-gradient(circle at 78% 88%, rgba(188,226,232,.16), transparent 40%);
+  }
+
+  /* ---------- 视图容器 ---------- */
+  .view{display:flex;flex-direction:column;min-height:100vh;}
+  .view[hidden]{display:none;}
+
+  /* ---------- 导航栏 ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.7rem clamp(1rem,4vw,3rem);
+    background:rgba(255,250,246,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-brand{
+    display:flex;align-items:center;gap:.55rem;
+    font-weight:700;font-size:1.25rem;color:var(--pink);
+    letter-spacing:.5px;text-decoration:none;
+  }
+  .nav-brand .leaf{font-size:1.3rem;display:inline-block;transition:transform .3s;}
+  .nav-brand:hover .leaf{animation:wiggle .6s ease-in-out infinite;}
+  @keyframes wiggle{0%,100%{transform:rotate(0);}25%{transform:rotate(-12deg);}75%{transform:rotate(12deg);}}
+  .nav-links{display:flex;align-items:center;gap:clamp(.6rem,2vw,1.6rem);}
+  .nav-links a{
+    text-decoration:none;color:var(--ink);font-size:.95rem;font-weight:500;
+    padding:.3rem .2rem;position:relative;transition:color .2s;cursor:pointer;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;
+    background:var(--pink);transition:width .25s;border-radius:2px;
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--pink);}
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+  .lang-btn{
+    margin-left:.4rem;border:1.5px solid var(--pink);
+    background:transparent;color:var(--pink);font-weight:600;
+    padding:.35rem .85rem;border-radius:999px;cursor:pointer;
+    font-family:inherit;font-size:.9rem;transition:all .2s;
+  }
+  .lang-btn:hover{background:var(--pink);color:#fff;}
+  .lang-btn:active{transform:scale(.94);}
+
+  /* ---------- BGM 静音/播放按钮 ---------- */
+  .music-btn{
+    margin-left:.4rem;width:2.2rem;height:2.2rem;flex:0 0 2.2rem;
+    border:1.5px solid var(--pink);background:transparent;color:var(--pink);
+    border-radius:50%;cursor:pointer;font-family:inherit;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.05rem;line-height:1;transition:all .2s;
+  }
+  .music-btn:hover{background:var(--pink);color:#fff;}
+  .music-btn:active{transform:scale(.94);}
+  .music-btn .ico{display:inline-block;}
+  .music-btn.playing .ico{animation:spin 4s linear infinite;}
+  .music-btn.muted{opacity:.9;border-color:#cbb;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ---------- 主视觉 / 页首 ---------- */
+  .hero{
+    position:relative;text-align:center;
+    padding:clamp(2.5rem,7vw,5rem) 1rem clamp(2rem,5vw,3.5rem);
+    overflow:hidden;
+  }
+  .hero h1{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:700;color:var(--dark);}
+  .hero p{color:var(--pink);font-weight:500;margin-top:.5rem;font-size:clamp(.95rem,2vw,1.1rem);}
+
+  /* 飘落花瓣 */
+  .petal{position:absolute;top:-30px;font-size:1.1rem;opacity:.7;animation:fall linear infinite;z-index:0;}
+  @keyframes fall{
+    0%{transform:translateY(-30px) rotate(0deg);}
+    100%{transform:translateY(105vh) rotate(320deg);}
+  }
+
+  /* ---------- 首页：成员 ---------- */
+  .members{padding:clamp(2rem,5vw,4rem) clamp(1rem,4vw,3rem) 3rem;max-width:1280px;margin:0 auto;}
+  .sec-head{text-align:center;margin-bottom:2.2rem;}
+  .sec-head h2{font-size:clamp(1.4rem,3vw,1.9rem);color:var(--dark);}
+  .sec-head p{color:var(--pink);font-weight:500;margin-top:.3rem;}
+  .grid{display:flex;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem;justify-items:center;}
+
+  .card{
+    width:100%;max-width:320px;background:var(--soft);
+    border-radius:22px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 10px 26px rgba(180,140,150,.12);
+    transition:transform .25s,box-shadow .25s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(180,140,150,.2);}
+  .card-top{height:8px;width:100%;}
+  .card-body{padding:1.4rem 1.3rem 1.7rem;text-align:center;}
+  .member-img{
+    width:100%;max-width:400px;aspect-ratio:400/800;
+    object-fit:contain;display:block;margin:0 auto 1rem;
+    background:linear-gradient(180deg,#fff 0%, #fff7f3 100%);
+    border-radius:16px;transition:transform .35s ease;
+  }
+  .card:hover .member-img{transform:scale(1.04) rotate(-1.2deg);}
+  .m-name{font-size:1.35rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:.4rem;}
+  .m-emoji{font-size:1.2rem;display:inline-block;animation:pulse 2.6s ease-in-out infinite;}
+  .cat-ico{width:1em;height:1em;vertical-align:-0.15em;display:inline-block;}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin:.9rem 0;}
+  .tag{font-size:.78rem;padding:.22rem .7rem;border-radius:999px;font-weight:600;}
+  .m-desc{font-size:.92rem;color:#6b5d57;margin:.4rem .2rem 1rem;min-height:3.4em;}
+  .m-quote{
+    font-size:.92rem;font-weight:600;font-style:italic;
+    background:#fff5f3;border-radius:14px;padding:.7rem .9rem;color:var(--dark);
+    border-left:4px solid var(--pink);text-align:left;
+  }
+
+  /* ---------- 演出计划：时间线 ---------- */
+  .schedule-wrap{max-width:720px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem) 3rem;flex:1;width:100%;}
+  .month-head{display:flex;align-items:center;gap:.7rem;margin:2rem 0 1.1rem;color:var(--dark);font-weight:700;font-size:1.15rem;}
+  .month-head::before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px #fde4e5;}
+  .month-head.blue::before{background:#7eb8c4;box-shadow:0 0 0 4px #e2f3f6;}
+
+  .timeline{position:relative;padding-left:0;}
+  .timeline::before{
+    content:"";position:absolute;left:110px;top:8px;bottom:8px;width:3px;
+    background:linear-gradient(180deg,var(--pink) 0%,#f3c9cc 46%,#7eb8c4 54%,#7eb8c4 100%);
+    border-radius:3px;opacity:.45;
+  }
+  .tl-item{display:grid;grid-template-columns:96px 28px 1fr;align-items:stretch;margin-bottom:1.4rem;}
+  .tl-date{text-align:center;align-self:center;}
+  .tl-mon{display:block;font-size:.8rem;font-weight:600;color:var(--pink);}
+  .tl-day{display:block;font-size:2rem;font-weight:800;color:var(--dark);line-height:1.05;}
+  .tl-wk{display:block;font-size:.72rem;color:#9a8b86;margin-top:.1rem;}
+  .tl-node{position:relative;}
+  .tl-node::before{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:18px;height:18px;border-radius:50%;background:var(--pink);
+    box-shadow:0 0 0 4px var(--cream),0 0 0 5px var(--pink);z-index:2;
+    animation:nodepulse 2.4s ease-in-out infinite;
+  }
+  .tl-item.blue .tl-mon{color:#5aa6b3;}
+  .tl-item.blue .tl-node::before{background:#7eb8c4;box-shadow:0 0 0 4px var(--cream),0 0 0 5px #7eb8c4;}
+  @keyframes nodepulse{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.18);}}
+  .tl-card{
+    background:var(--soft);border-radius:18px;border:1px solid var(--line);
+    box-shadow:0 8px 22px rgba(180,140,150,.12);padding:1rem 1.2rem;margin-left:.4rem;
+    transition:transform .25s,box-shadow .25s;
+  }
+  .tl-card:hover{transform:translateX(4px);box-shadow:0 12px 30px rgba(180,140,150,.2);}
+  .tl-time{display:inline-block;font-size:.8rem;font-weight:700;color:#fff;background:var(--pink);
+    padding:.12rem .7rem;border-radius:999px;margin-bottom:.35rem;letter-spacing:.5px;}
+  .tl-item.blue .tl-time{background:#7eb8c4;}
+  .tl-card h3{font-size:1.12rem;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:.35rem;margin-bottom:.15rem;}
+  .tl-card p{font-size:.92rem;color:#7a6e69;}
+  .sparkle{font-size:1rem;}
+
+  /* ---------- Follow ---------- */
+  .follow-wrap{max-width:920px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem) 3rem;flex:1;width:100%;}
+  .sec-title{font-size:1.15rem;font-weight:700;color:var(--dark);margin:1.8rem 0 .8rem;display:flex;align-items:center;gap:.5rem;}
+  .official-card{
+    background:var(--soft);border-radius:22px;border:1px solid var(--line);
+    box-shadow:0 10px 26px rgba(180,140,150,.12);padding:1.6rem;
+    display:flex;align-items:center;gap:1.2rem;
+  }
+  .official-icon{width:64px;height:64px;border-radius:50%;background:#fde4e5;display:flex;align-items:center;justify-content:center;font-size:2rem;}
+  .official-info h3{font-size:1.2rem;color:var(--dark);margin-bottom:.25rem;}
+  .x-handle{
+    font-family:"SF Mono","Menlo","Consolas",monospace;font-size:1.05rem;font-weight:700;color:var(--pink);
+    background:#fff5f3;padding:.35rem .9rem;border-radius:999px;display:inline-block;letter-spacing:.3px;
+  }
+  .member-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.1rem;}
+  .member-card{
+    background:var(--soft);border-radius:20px;border:1px solid var(--line);
+    box-shadow:0 10px 24px rgba(180,140,150,.11);overflow:hidden;text-align:center;
+    transition:transform .25s,box-shadow .25s;
+  }
+  .member-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(180,140,150,.2);}
+  .member-card .card-top{height:8px;}
+  .member-card .card-body{padding:1.1rem 1rem 1.3rem;}
+  .member-card .emoji{font-size:2rem;line-height:1;display:inline-block;animation:pulse 2.6s ease-in-out infinite;}
+  .member-card .m-name{font-size:1.15rem;font-weight:700;margin-top:.5rem;}
+  .member-card .m-read{font-size:.75rem;color:#a99;display:block;margin-bottom:.6rem;}
+  .member-card .x-handle{font-size:.98rem;padding:.3rem .8rem;}
+  .note{margin-top:1.6rem;font-size:.85rem;color:#a89993;text-align:center;}
+
+  /* ---------- 底栏 ---------- */
+  footer{
+    background:var(--dark);color:#e9eef0;text-align:center;
+    padding:2.2rem 1rem;
+  }
+  .view-home footer{margin-top:1rem;}
+  .view-schedule footer,.view-follow footer{margin-top:auto;}
+  footer .f-logo{font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:.5px;}
+  footer .f-line{margin:.5rem 0;font-size:.9rem;opacity:.85;}
+  footer .f-copy{font-size:.78rem;opacity:.6;margin-top:.8rem;}
+
+  /* ---------- 动效 ---------- */
+  @keyframes heroIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+  .hero-logo{width:min(420px,72vw);height:auto;filter:drop-shadow(0 8px 18px rgba(236,109,113,.18));
+    animation:heroIn 1s ease both, floatY 4.5s 1s ease-in-out infinite;}
+  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  .hero-title{font-size:clamp(1.3rem,3.4vw,2.1rem);font-weight:700;color:var(--dark);margin-top:1rem;animation:heroIn 1s .15s ease both;}
+  .hero-sub{margin-top:.6rem;font-size:clamp(.95rem,2vw,1.1rem);color:var(--pink);font-weight:500;animation:heroIn 1s .3s ease both;}
+  .scroll-hint{margin-top:1.6rem;font-size:.85rem;color:#b89;animation:heroIn 1s .5s ease both, bounce 1.8s .9s ease-in-out infinite;}
+  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.16);}}
+  .view-schedule .hero h1,.view-follow .hero h1{animation:heroIn 1s ease both;}
+  .view-schedule .hero p,.view-follow .hero p{animation:heroIn 1s .2s ease both;}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.show{opacity:1;transform:none;}
+
+  @media(max-width:560px){
+    .nav-links{gap:.5rem;}
+    .nav-links a{font-size:.85rem;}
+    .nav-brand{font-size:1.05rem;}
+    .timeline::before{left:78px;}
+    .tl-item{grid-template-columns:64px 24px 1fr;}
+    .tl-day{font-size:1.6rem;}
+    .official-card{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav>
+    <a class="nav-brand" href="#home"><span class="leaf">🌸</span>Pretty Garden</a>
+    <div class="nav-links">
+      <a href="#home" class="nav-link active" data-view="home" data-zh="首页" data-ja="ホーム">首页</a>
+      <a href="#schedule" class="nav-link" data-view="schedule" data-zh="演出计划" data-ja="ライブ予定">演出计划</a>
+      <a href="#follow" class="nav-link" data-view="follow" data-zh="Follow" data-ja="Follow">Follow</a>
+      <button class="music-btn" id="musicBtn" type="button" aria-label="播放背景音乐" title="BGM"><span class="ico">🔇</span></button>
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">日本語</button>
+    </div>
+  </nav>
+
+  <!-- ============ 视图：首页 ============ -->
+  <section class="view view-home" data-view="home" id="view-home">
+    <header class="hero" id="top">
+      <img class="hero-logo" src="assets/logo_clear.png" alt="Pretty Garden">
+      <h1 class="hero-title" data-zh="欢迎来到 Pretty Garden 的秘密花园" data-ja="Pretty Garden の秘密の庭へようこそ">欢迎来到 Pretty Garden 的秘密花园</h1>
+      <p class="hero-sub" data-zh="四株花朵，正在等你来推。" data-ja="四つの花が、あなたの推しを待っている。">四株花朵，正在等你来推。</p>
+      <p class="scroll-hint" data-zh="↓  向下认识她们吧" data-ja="↓ 下にスクロールして会ってみて">↓ 向下认识她们吧</p>
+    </header>
+
+    <section class="members" id="members">
+      <div class="sec-head reveal">
+        <h2 data-zh="成员 Members" data-ja="メンバー Members">成员 Members</h2>
+        <p data-zh="今天，想为谁应援呢？" data-ja="今日も、誰かの応援になりませんか？">今天，想为谁应援呢？</p>
+      </div>
+
+      <div class="grid">
+        <!-- 朱音 -->
+        <div class="card reveal">
+          <div class="card-top" style="background:var(--pink)"></div>
+          <div class="card-body">
+            <img class="member-img" src="assets/Akane.png" alt="椛 朱音" style="border-left:4px solid var(--pink)">
+            <div class="m-name" style="color:var(--pink)"><span class="m-emoji">🍁</span>椛 朱音</div>
+            <div class="tags">
+              <span class="tag" style="background:#fde4e5;color:var(--pink)" data-zh="姐姐系" data-ja="お姉さん系">姐姐系</span>
+              <span class="tag" style="background:#fde4e5;color:var(--pink)" data-zh="安心感" data-ja="安心感">安心感</span>
+              <span class="tag" style="background:#fde4e5;color:var(--pink)" data-zh="认真派" data-ja="真面目">认真派</span>
+            </div>
+            <p class="m-desc" data-zh="用最稳的演出和最温柔的笑，把你今天的疲惫轻轻接住。" data-ja="あなたに一番安定したステージと優しい笑顔で、今日の疲れをそっと受け止めてくれる。">用最稳的演出和最温柔的笑，把你今天的疲惫轻轻接住。</p>
+            <div class="m-quote" style="border-left-color:var(--pink)" data-zh="「从今天起　我会照亮你，直到心底最深处」" data-ja="「今日から　照らしてあげる、心の奥まで」">「从今天起　我会照亮你，直到心底最深处」</div>
+          </div>
+        </div>
+
+        <!-- 若叶 -->
+        <div class="card reveal">
+          <div class="card-top" style="background:var(--green)"></div>
+          <div class="card-body">
+            <img class="member-img" src="assets/Wakaba.png" alt="若草 若叶" style="border-left:4px solid var(--green)">
+            <div class="m-name" style="color:#5fae54"><span class="m-emoji">🍀</span>若草 若叶</div>
+            <div class="tags">
+              <span class="tag" style="background:#e7f6e2;color:#5fae54" data-zh="元气担当" data-ja="元気担当">元气担当</span>
+              <span class="tag" style="background:#e7f6e2;color:#5fae54" data-zh="近距离感" data-ja="距離近い">近距离感</span>
+              <span class="tag" style="background:#e7f6e2;color:#5fae54" data-zh="气氛王" data-ja="盛り上げ上手">气氛王</span>
+            </div>
+            <p class="m-desc" data-zh="一喊她的名字就会立刻给你超大回应，现场直接变成“快乐现场”。" data-ja="名前を呼ぶとすぐに大きな反応を返してくれて、会場がそのまま「幸せ現場」になる。">一喊她的名字就会立刻给你超大回应，现场直接变成“快乐现场”。</p>
+            <div class="m-quote" style="border-left-color:var(--green)" data-zh="「一起喊吧！明天一定会笑得更开心！」" data-ja="「一緒に叫ぼ！　明日はもっと笑える！」">「一起喊吧！明天一定会笑得更开心！」</div>
+          </div>
+        </div>
+
+        <!-- 空 -->
+        <div class="card reveal">
+          <div class="card-top" style="background:var(--blue)"></div>
+          <div class="card-body">
+            <img class="member-img" src="assets/Sora.png" alt="蓝原 空" style="border-left:4px solid var(--blue)">
+            <div class="m-name" style="color:#5aa6b3"><span class="m-emoji">💧</span>蓝原 空</div>
+            <div class="tags">
+              <span class="tag" style="background:#e2f3f6;color:#5aa6b3" data-zh="酷帅反差" data-ja="クール→ギャップ">酷帅反差</span>
+              <span class="tag" style="background:#e2f3f6;color:#5aa6b3" data-zh="安静命中" data-ja="静かに刺さる">安静命中</span>
+              <span class="tag" style="background:#e2f3f6;color:#5aa6b3" data-zh="沼系" data-ja="沼系">沼系</span>
+            </div>
+            <p class="m-desc" data-zh="每个眼神都像在说“我有看到你”，越看越容易陷进去。" data-ja="あまりしゃべらないけど、その眼差しは全部「あなたのこと見てるよ」と語りかけてきて、見れば見るほどハマっていく。">每个眼神都像在说“我有看到你”，越看越容易陷进去。</p>
+            <div class="m-quote" style="border-left-color:var(--blue)" data-zh="「……别走。我还会继续唱下去」" data-ja="「……帰らないで。まだ、歌える」">「……别走。我还会继续唱下去」</div>
+          </div>
+        </div>
+
+        <!-- 黑猫 -->
+        <div class="card reveal">
+          <div class="card-top" style="background:var(--dark)"></div>
+          <div class="card-body">
+            <img class="member-img" src="assets/Kuroneko.png" alt="黑泽 黑猫" style="border-left:4px solid var(--dark)">
+            <div class="m-name" style="color:var(--dark)"><span class="m-emoji"><img class="cat-ico" src="assets/cat-black.svg" alt="黑猫"></span>黑泽 黑猫</div>
+            <div class="tags">
+              <span class="tag" style="background:#dfe6e7;color:var(--dark)" data-zh="小恶魔" data-ja="小悪魔">小恶魔</span>
+              <span class="tag" style="background:#dfe6e7;color:var(--dark)" data-zh="神秘感" data-ja="ミステリアス">神秘感</span>
+              <span class="tag" style="background:#dfe6e7;color:var(--dark)" data-zh="猫系" data-ja="猫っぽい">猫系</span>
+            </div>
+            <p class="m-desc" data-zh="被她轻轻一瞄就心跳加速，明明危险却又想更靠近一点？" data-ja="ちらっと見られただけで胸が高鳴り、危ないのに、もう少し近づきたくなる？">被她轻轻一瞄就心跳加速，明明危险却又想更靠近一点？</p>
+            <div class="m-quote" style="border-left-color:var(--dark)" data-zh="「呵呵，就算你逃了我也会追上哦？喵」" data-ja="「ふふ、逃げても追いかけるよ？にゃ」">「呵呵，就算你逃了我也会追上哦？喵」</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="f-logo">🌸 Pretty Garden</div>
+      <p class="f-line" data-zh="在 Pretty Garden，你永远是受欢迎的那一个。" data-ja="Pretty Garden では、あなたはいつでも歓迎されている。">在 Pretty Garden，你永远是受欢迎的那一个。</p>
+      <p class="f-copy">© 2025 Pretty Garden. All Rights Reserved.</p>
+    </footer>
+  </section>
+
+  <!-- ============ 视图：演出计划 ============ -->
+  <section class="view view-schedule" data-view="schedule" id="view-schedule" hidden>
+    <header class="hero">
+      <h1 data-zh="演出日程表 Live Schedule" data-ja="ライブスケジュール Live Schedule">演出日程表 Live Schedule</h1>
+      <p data-zh="每一场 Live，都想和你见面。" data-ja="どのライブも、あなたに会いたいから。">每一场 Live，都想和你见面。</p>
+    </header>
+
+    <main class="schedule-wrap">
+      <!-- 12月 -->
+      <div class="month-head reveal" data-zh="12月 · 近期" data-ja="12月 · 直近">12月 · 近期</div>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-date">
+            <span class="tl-mon" data-zh="12月" data-ja="12月">12月</span>
+            <span class="tl-day">27</span>
+            <span class="tl-wk" data-zh="周六" data-ja="土">周六</span>
+          </div>
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <span class="tl-time">15:00</span>
+            <h3><span class="sparkle">💗</span>Live in Love❤STAR</h3>
+            <p data-zh="秋叶原" data-ja="秋葉原">秋叶原</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-date">
+            <span class="tl-mon" data-zh="12月" data-ja="12月">12月</span>
+            <span class="tl-day">28</span>
+            <span class="tl-wk" data-zh="周日" data-ja="日">周日</span>
+          </div>
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <span class="tl-time">16:00</span>
+            <h3><span class="sparkle">🌟</span>Live in Neon Stage</h3>
+            <p data-zh="新宿" data-ja="新宿">新宿</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1月 -->
+      <div class="month-head blue reveal" data-zh="1月 · 下个月" data-ja="1月 · 来月">1月 · 下个月</div>
+
+      <div class="timeline">
+        <div class="tl-item blue reveal">
+          <div class="tl-date">
+            <span class="tl-mon" data-zh="1月" data-ja="1月">1月</span>
+            <span class="tl-day">7</span>
+            <span class="tl-wk" data-zh="周三" data-ja="水">周三</span>
+          </div>
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <span class="tl-time">16:00</span>
+            <h3><span class="sparkle">🎤</span>Live in TAKAMI LiveHouse</h3>
+            <p data-zh="池袋" data-ja="池袋">池袋</p>
+          </div>
+        </div>
+
+        <div class="tl-item blue reveal">
+          <div class="tl-date">
+            <span class="tl-mon" data-zh="1月" data-ja="1月">1月</span>
+            <span class="tl-day">18</span>
+            <span class="tl-wk" data-zh="周日" data-ja="日">周日</span>
+          </div>
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <span class="tl-time">17:00</span>
+            <h3><span class="sparkle">🌠</span>Live in Weekend Special</h3>
+            <p data-zh="台场" data-ja="お台場">台场</p>
+          </div>
+        </div>
+
+        <div class="tl-item blue reveal">
+          <div class="tl-date">
+            <span class="tl-mon" data-zh="1月" data-ja="1月">1月</span>
+            <span class="tl-day">24</span>
+            <span class="tl-wk" data-zh="周六" data-ja="土">周六</span>
+          </div>
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <span class="tl-time">18:00</span>
+            <h3><span class="sparkle">🌙</span>Live in Shibuya Night Live</h3>
+            <p data-zh="涩谷" data-ja="渋谷">涩谷</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="f-logo">🌸 Pretty Garden</div>
+      <p class="f-copy">© 2025 Pretty Garden. All Rights Reserved.</p>
+    </footer>
+  </section>
+
+  <!-- ============ 视图：Follow ============ -->
+  <section class="view view-follow" data-view="follow" id="view-follow" hidden>
+    <header class="hero">
+      <h1 data-zh="关注我们 Follow Us" data-ja="フォロー Follow Us">关注我们 Follow Us</h1>
+      <p data-zh="追踪 Pretty Garden 的最新动态。" data-ja="Pretty Garden の最新情報をチェックしよう。">追踪 Pretty Garden 的最新动态。</p>
+    </header>
+
+    <main class="follow-wrap">
+      <h2 class="sec-title reveal"><span>🌸</span><span data-zh="官方 X（原Twitter）账号" data-ja="オフィシャル X（元Twitter）アカウント">官方 X（原Twitter）账号</span></h2>
+      <div class="official-card reveal">
+        <div class="official-icon">🌸</div>
+        <div class="official-info">
+          <h3 data-zh="Pretty Garden 官方" data-ja="Pretty Garden 公式">Pretty Garden 官方</h3>
+          <span class="x-handle">@prettygarden_official</span>
+        </div>
+      </div>
+
+      <h2 class="sec-title reveal"><span>🎤</span><span data-zh="成员账号" data-ja="メンバーアカウント">成员账号</span></h2>
+      <div class="member-grid">
+        <div class="member-card reveal">
+          <div class="card-top" style="background:var(--pink)"></div>
+          <div class="card-body">
+            <div class="emoji">🍁</div>
+            <div class="m-name" style="color:var(--pink)">椛 朱音</div>
+            <span class="m-read">Akane</span>
+            <span class="x-handle">@akane_pg</span>
+          </div>
+        </div>
+
+        <div class="member-card reveal">
+          <div class="card-top" style="background:var(--green)"></div>
+          <div class="card-body">
+            <div class="emoji">🍀</div>
+            <div class="m-name" style="color:#5fae54">若草 若叶</div>
+            <span class="m-read">Wakaba</span>
+            <span class="x-handle" style="color:#5fae54;background:#e7f6e2">@wakaba_pg</span>
+          </div>
+        </div>
+
+        <div class="member-card reveal">
+          <div class="card-top" style="background:var(--blue)"></div>
+          <div class="card-body">
+            <div class="emoji">💧</div>
+            <div class="m-name" style="color:#5aa6b3">蓝原 空</div>
+            <span class="m-read">Sora</span>
+            <span class="x-handle" style="color:#5aa6b3;background:#e2f3f6">@sora_pg</span>
+          </div>
+        </div>
+
+        <div class="member-card reveal">
+          <div class="card-top" style="background:var(--dark)"></div>
+          <div class="card-body">
+            <div class="emoji"><img class="cat-ico" src="assets/cat-black.svg" alt="黑猫"></div>
+            <div class="m-name" style="color:var(--dark)">黑泽 黑猫</div>
+            <span class="m-read">Kuroneko</span>
+            <span class="x-handle" style="color:var(--dark);background:#dfe6e7">@kuroneko_pg</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="note reveal" data-zh="* 以上均为虚构账号，并非真实联系途径。" data-ja="* これらは仮のIDです。実際の連絡先ではありません。">* 以上均为虚构账号，并非真实联系途径。</p>
+    </main>
+
+    <footer>
+      <div class="f-logo">🌸 Pretty Garden</div>
+      <p class="f-copy">© 2025 Pretty Garden. All Rights Reserved.</p>
+    </footer>
+  </section>
+
+  <!-- BGM -->
+  <audio id="bgm" src="assets/SakasetePrettyGarden_Inst_Acoustic.mp3" loop preload="auto"></audio>
+
+<script>
+  // 飘落花瓣 + 漂浮装饰（为每个视图的 hero 生成）
+  (function(){
+    const deco=["🌸","🌼","💮","🍃","💕","✨","🌟"];
+    document.querySelectorAll(".hero").forEach(hero=>{
+      for(let i=0;i<14;i++){
+        const s=document.createElement("span");
+        s.className="petal";
+        s.textContent=deco[Math.floor(Math.random()*deco.length)];
+        s.style.left=Math.random()*100+"vw";
+        s.style.animationDuration=(7+Math.random()*8)+"s";
+        s.style.animationDelay=(-Math.random()*10)+"s";
+        s.style.fontSize=(0.8+Math.random()*0.9)+"rem";
+        hero.appendChild(s);
+      }
+    });
+  })();
+
+  // 单页视图切换（不刷新页面，BGM / 语言状态常驻）
+  const viewNames=["home","schedule","follow"];
+  const viewTitles={
+    home:"Pretty Garden | 官方主页",
+    schedule:"演出计划 | Pretty Garden",
+    follow:"Follow | Pretty Garden"
+  };
+  function showView(name){
+    if(viewNames.indexOf(name)<0)name="home";
+    document.querySelectorAll(".view").forEach(v=>{
+      v.hidden = v.getAttribute("data-view")!==name;
+    });
+    document.querySelectorAll(".nav-link").forEach(a=>{
+      a.classList.toggle("active", a.getAttribute("data-view")===name);
+    });
+    // 新视图的 reveal 直接显示（带轻微延迟）
+    const view=document.getElementById("view-"+name);
+    if(view){
+      view.querySelectorAll(".reveal").forEach((el,i)=>{
+        el.classList.add("show");
+        el.style.transitionDelay="";
+      });
+    }
+    document.title=viewTitles[name]||"Pretty Garden";
+    window.scrollTo(0,0);
+  }
+  // 点击导航切换
+  document.querySelectorAll(".nav-link").forEach(a=>{
+    a.addEventListener("click",(e)=>{
+      e.preventDefault();
+      const name=a.getAttribute("data-view");
+      if(location.hash!=="#"+name){try{history.replaceState(null,"","#"+name);}catch(err){}}
+      showView(name);
+    });
+  });
+  // 初始视图（跟随 hash）
+  let initial="home";
+  try{const h=location.hash.replace("#","");if(viewNames.indexOf(h)>=0)initial=h;}catch(e){}
+  showView(initial);
+
+  // 滚动出现（首页初始加载时生效）
+  (function(){
+    if(!("IntersectionObserver" in window)){
+      document.querySelectorAll('#view-home .reveal').forEach(e=>e.classList.add('show'));return;
+    }
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('#view-home .reveal').forEach((el,i)=>{
+      el.style.transitionDelay=((i%6)*0.08)+"s";
+      io.observe(el);
+    });
+  })();
+
+  // 中日语言切换（单页全局同步）
+  function applyLang(lang){
+    document.documentElement.lang = (lang==="ja")?"ja":"zh";
+    document.querySelectorAll("[data-zh]").forEach(el=>{
+      el.textContent = el.getAttribute("data-"+lang);
+    });
+    const btn=document.getElementById("langBtn");
+    btn.textContent = (lang==="zh") ? "日本語" : "中文";
+    try{localStorage.setItem("pg-lang",lang);}catch(e){}
+  }
+  function toggleLang(){
+    const cur = document.documentElement.lang==="ja" ? "zh" : "ja";
+    applyLang(cur);
+  }
+  // 初始化（记忆上次的选语言）
+  (function(){
+    let saved="zh";
+    try{saved=localStorage.getItem("pg-lang")||"zh";}catch(e){}
+    applyLang(saved);
+  })();
+
+  // BGM 背景音乐控制
+  (function(){
+    const bgm=document.getElementById("bgm"),btn=document.getElementById("musicBtn");
+    if(!bgm||!btn)return;
+    bgm.volume=0.45;bgm.loop=true;
+    let muted="0";
+    try{muted=localStorage.getItem("pg-muted")||"0";}catch(e){}
+    function setUI(playing){
+      if(playing){
+        btn.classList.add("playing");btn.classList.remove("muted");
+        btn.setAttribute("aria-label","静音");btn.innerHTML='<span class="ico">🎵</span>';
+      }else{
+        btn.classList.remove("playing");btn.classList.add("muted");
+        btn.setAttribute("aria-label","播放背景音乐");btn.innerHTML='<span class="ico">🔇</span>';
+      }
+    }
+    function tryPlay(){
+      const p=bgm.play();
+      if(p&&p.then){p.then(()=>setUI(true)).catch(()=>setUI(false));}
+      else setUI(!bgm.paused);
+    }
+    btn.addEventListener("click",()=>{
+      if(bgm.paused){tryPlay();}
+      else{bgm.pause();setUI(false);try{localStorage.setItem("pg-muted","1");}catch(e){}}
+    });
+    if(muted==="1"){setUI(false);}
+    else{tryPlay();}
+  })();
+</script>
+</body>
+</html>
